@@ -1,0 +1,58 @@
+extends layouts/main
+include mixins
+
+block content
+  .ui.stackable.page.grid.trip-detail
+    .three.column.container.row.trip-title(style="padding:0;")
+      .column
+        .vertical-dummy
+        p.reisedauer
+          strong= "Reisedauer: "
+          span= _.days_duration_string(trip)
+      .column.center.aligned
+        .vertical-dummy
+          
+        +centered_title(title)
+   
+      .column.right.aligned(style="padding-right:0;")
+        .vertical-dummy
+        p.price !{_.formatPrice(trip.price)}
+    .container.row(style="padding-bottom:0;padding-top:0;")
+      .column.slick-container
+        .slick
+          each image in trip.images
+            img(src='/assets/images/trip/' + image.src)
+        a(href='javascript:;' class='slick-prev')
+          i.huge.left.angle.icon
+        a(href='javascript:;' class='slick-next')
+          i.huge.right.angle.icon
+
+    .whiteandshiny.container.row
+      .twelve.wide.column
+        .ui.fluid.grid
+          .row
+            .column
+              h3.ui.header Reisebeschrieb
+              .description !{trip.description}
+          .row
+            .column
+              if tags.length > 0
+                h3.ui.header= (tags.length > 1 ? "Stichwörter" : "Stichwort")
+                .tags
+                  each tag in tags
+                    a.ui.large.tag.label(href= "/trips/?tag=" + tag.value)= tag.name
+
+      .four.wide.column
+        h3.ui.header= "Datum: "
+        p= _.formatDateSpan(trip.date_begin, trip.date_end)
+        
+        h3.ui.header= "Anzahl Tage: " 
+        p= _.days_duration_string(trip)
+        
+        h3.ui.header Unsere Leistungen
+        .services !{trip.services}
+
+        p
+          a.ui.large.red.button(href='/reservation/' + trip._id) 
+            | Jetzt reservieren
+            i.ui.right.angle.icon

@@ -1,0 +1,15 @@
+extends layouts/main
+
+block content
+	+title(title)
+	.ui.page.grid
+		.row.container
+			.column.slick-container
+				.slick
+					each image in galery.images
+						img(height="200", src= "/assets/images/galeries/"+image.fileName)
+				a(href='javascript:;' class='slick-prev')
+					i.huge.left.angle.icon
+				a(href='javascript:;' class='slick-next')
+					i.huge.right.angle.icon
+

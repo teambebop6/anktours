@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+.app/
+public/images/galeries/*
+public/images/trip/*
+src/secret/*.coffee
+dist/
+vendor/semantic/dist/
+*dist.zip

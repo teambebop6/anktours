@@ -1,0 +1,12 @@
+extends layouts/main
+include ../mixins
+
+block content
+	+title("Neue Reise erstellen", true)
+	.ui.page.grid
+		.whiteandshiny.container.row
+			.column
+				form#form-new.ui.form(enctype='multipart/form-data')
+					include partials/form_trip
+					.field
+						button.ui.right.floated.primary.button(type='submit') Reise erstellen

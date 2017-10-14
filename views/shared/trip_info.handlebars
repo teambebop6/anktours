@@ -1,0 +1,9 @@
+<div class="trip-info">
+	<p><strong>Reisedauer: </strong>{{ days_duration_string trip }}</p>
+	{{#if (isMultiDay trip)}}
+	<p><strong>Beginnt am: </strong>{{ formatDate trip.date_begin }}</p>
+	<p><strong>Ended am: </strong>{{ formatDate trip.date_end }}</p>
+	{{else}}
+	<p><strong>Am: </strong>{{ formatDate trip.date_begin }}</p>
+	{{/if}}
+</div>

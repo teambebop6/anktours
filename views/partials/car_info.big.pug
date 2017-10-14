@@ -1,0 +1,46 @@
+table.ui.very.basic.celled.table
+	thead
+		tr
+			th.two.wide
+			th.seven.wide= setra.name
+			th.seven.wide= lion.name
+	tbody
+		tr
+			td
+			td
+				img.ui.fluid.image(src='/static/images/' + setra.image)
+			td
+				img.ui.fluid.image(src='/static/images/' + lion.image)
+		tr
+			td
+				h4.ui.header Länge (Meter)
+			td= setra.length
+			td= lion.length
+		tr
+			td
+				h4.ui.header Kapazität
+			td= setra.capacity
+			td= lion.capacity
+		tr
+			td
+				h4.ui.header Technische Details
+			td= setra.technicalDetails
+			td= lion.technicalDetails
+		tr
+			td
+				h4.ui.header
+					i.plug.icon
+					| Steckdose
+			td= setra.electricity
+			td= lion.electricity
+		// each (concatArray setra.features lion.features)
+		each feature in features 
+			tr
+				td
+					h4.ui.header= feature 
+				td
+					if setra.features.contains(feature)
+					i.ui.green.checkmark.icon
+				td
+					if lion.features.contains(feature) 
+					i.ui.green.checkmark.icon

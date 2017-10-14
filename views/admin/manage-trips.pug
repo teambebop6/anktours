@@ -1,0 +1,54 @@
+extends layouts/main
+include ../mixins
+
+block content
+	+title("Reisen verwalten", true)
+
+	.ui.page.grid(style="margin-top:-4.5rem;")
+		.container.row
+			.sixteen.wide.column
+				a.ui.right.floated.red.button(href="/admin/trip/new")
+					i.plus.icon
+					| Neue Reise erstellen
+	.ui.page.grid
+		.whiteandshiny.container.row
+			.sixteen.wide.column
+				table.ui.single.line.table
+					thead
+						tr
+							th Titel
+							th Start
+							th Ende
+							th Typ
+							th Aktionen
+					tbody
+						each trip in trips
+							tr(id='trip_' + trip._id)
+								td= trip.title
+								td= _.formatDate(trip.date_begin)
+								td= _.formatDate(trip.date_end)
+								td= _.isMultiDay(trip) ? 'Mehrtagesfahrt' : 'Tagesfahrt'
+								td
+									a.ui.primary.icon.button(href='/admin/trip/modify/' + trip._id)
+										i.edit.icon
+									a.ui.icon.button.delete-trip(href='javascript:;', id='delete-'+ trip._id)
+										i.delete.icon
+
+	// Confirm delete modal
+	.ui.basic.modal.confirm_delete
+		i.close.icon
+		.header
+			| Bestätigung Löschvorgang
+		.image.content
+			.image
+				i.archive.icon
+			.description
+				p Möchten Sie diese Reise wirklich löschen?
+		.actions
+			.two.fluid.ui.inverted.buttons
+				.ui.deny.red.basic.inverted.button
+					i.remove.icon
+					| Nein
+				.ui.approve.green.basic.inverted.button
+					i.checkmark.icon
+					| Ja

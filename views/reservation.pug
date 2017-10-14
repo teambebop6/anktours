@@ -1,0 +1,134 @@
+extends layouts/main
+include mixins
+
+block content
+	+title("Reservation: " + trip.title)
+	
+	.ui.page.grid
+		.container.row
+			.column.slick-container
+				.slick
+					each image in trip.images
+						img(src='/assets/images/trip/' + image.src)
+	.ui.stackable.page.grid.trip-detail
+		.row.container.whiteandshiny
+			.twelve.wide.column
+
+				.ui.message.flash(style="display:none;")
+					.header
+					.content
+
+				.ui.fluid.grid.finish-reservation
+					.row
+						.column
+							h3.ui.header Ihre persönliche Reise 
+							p Bitte füllen Sie folgende Felder aus:
+							form#contact.ui.stackable.form(method="post", action="/reservation")
+								input(name='trip_id', type='hidden', value= trip._id)
+								.two.fields
+									.inline.field
+										label Anzahl Reiseteilnehmende
+										.ui.compact.selection.dropdown
+											input(name='number_of_travellers', type='hidden')
+											i.dropdown.icon
+											.default.text 1
+											.menu
+												.item(data-value='1') 1
+												.item(data-value='2') 2
+												.item(data-value='3') 3
+												.item(data-value='4') 4
+												.item(data-value='5') 5
+												.item(data-value='6') 6
+												.item(data-value='7') 7
+												.item(data-value='8') 8
+												.item(data-value='9') 9
+												.item(data-value='10') 10
+												.item(data-value='11') 11
+												.item(data-value='12') 12
+												.item(data-value='13') 13
+												.item(data-value='14') 14
+												.item(data-value='15') 15
+												.item(data-value='16') 16
+												.item(data-value='17') 17
+												.item(data-value='18') 18
+												.item(data-value='19') 19
+												.item(data-value='20') 20
+												.item(data-value='21') 21
+												.item(data-value='22') 22
+												.item(data-value='23') 23
+												.item(data-value='24') 24
+												.item(data-value='25') 25
+												.item(data-value='26') 26
+												.item(data-value='27') 27
+												.item(data-value='28') 28
+												.item(data-value='29') 29
+												.item(data-value='30') 30
+												.item(data-value='31+') 31+
+
+								h5.ui.header(style='margin-top:0;') Spezielle Anforderungen
+								.field
+									.ui.checkbox
+										input#disabilities(name="disabilities", tabindex="0", class="hidden", type="checkbox")
+										label(for="disabilities") Person mit verringerter Mobilität zu beachten
+								.field
+									.ui.checkbox
+										input#vegetarian(type='checkbox', name="vegetarian")
+										label(for='vegetarian') Vegetarisch essen
+								.field
+									.ui.checkbox
+										input#pick_up(type='checkbox', name="pickup")
+										label(for='pick_up') Abholung von zu Hause wenn möglich
+								.field
+									label Bemerkungen
+									textarea(name="comments")
+								.field(style="margin-top:2rem;")
+									.ui.dividing.sub.header Angaben zur Kontaktperson
+								.two.fields
+									.field
+										label Name
+										input#last_name(name='contact[last_name]', placeholder='Bitte Name eingeben', type='text')
+									.field
+										label Vorname
+										input#first_name(name='contact[first_name]', placeholder='Bitte Vorname eingeben', type='text')
+								.two.fields
+									.field
+										label Telefonnummer der Kontaktperson
+										input#phone(name='contact[phone]', placeholder='Bitte Telefonnummer eingeben', type='text')
+									.field
+										label Email-Adresse der Kontaktperson
+										input#email(name='contact[email]', placeholder='Bitte Email-Adresse eingeben', type='text')
+								h2.ui.header Entschuldigung
+								.ui.message.clearfix
+									.ui.stackable.grid
+										.four.wide.column
+											img.ui.left.floated.image(src='/assets/images/team/katja_wyss.jpg')
+										.twelve.wide.column
+											.header
+												| Eine Reservation bedeuted noch nicht, dass Sie die Reise definitiv antreten können!
+											p
+												| Nach Absenden Ihrer Reservation, werden wir Ihre Anfrage sofort bearbeiten und uns dann in Kürze bei Ihnen melden. So können wir Ihre Bestellung gemeinsam abschliessen.
+								button.ui.right.floated.red.button(type="submit")
+									i.ui.checkmark.icon
+									| Reservation abschliessen
+			// Reisedetails
+			.four.wide.column
+				h3.ui.header= "Reisetitel: "
+				p= trip.title
+
+				h3.ui.header= "Datum: "
+				p= _.formatDateSpan(trip.date_begin, trip.date_end)
+				
+				h3.ui.header= "Anzahl Tage: " 
+				p= _.days_duration_string(trip)
+				
+				h3.ui.header Unsere Leistungen
+				.services !{trip.services}
+
+				h3.ui.header Preis pro Person
+				div !{_.formatPrice(trip.price)}
+					if trip.single_room
+						br
+						div
+							= "(Einzelzimmer-Zuschlag: "
+							span !{_.formatPrice(trip.single_room)}
+							= ")"

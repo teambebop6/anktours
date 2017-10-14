@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block content
+	.ui.page.grid
+		.row.container.whiteandshiny
+			.column
+				h1 Entschuldigung, ein Fehler ist aufgetreten.
+				if message
+					h2 Fehlerbeschrieb:
+					.message !{message.replace(/\n/g, '<br/>')}
+				p Das hätte nicht passieren dürfen.
+				p <a href="/">Hier</a> geht's zurück.

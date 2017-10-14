@@ -1,0 +1,49 @@
+mixin centered_title(text, inverted)
+  h2.ui.header(class=inverted ? "inverted" : "" style="display:inline-block;")
+    span= text
+    
+mixin title(text, inverted)
+  .ui.page.grid
+    .container.row
+      .column
+        h2.ui.header(class=inverted ? "inverted" : "")
+          span= text
+
+mixin subtitle(text, inverted)
+  h3.ui.header(class=inverted ? "inverted" : "")
+    span= text
+
+mixin galery_image(image)
+  .column.galery_image(id= image._id)
+    .ui.two.column.grid
+      .column
+        .image.galery-image
+          a.deleteImage(href='javascript:;', data-id= image._id)
+            i.delete.icon
+          a.move-down(href="javascript:;" data-id= image._id)
+            i.right.arrow.icon
+          a.move-up(href="javascript:;" data-id= image._id)
+            i.left.arrow.icon
+          img.ui.image(src="/assets/images/galeries/" + image.fileName, height="150")
+      .column
+        .field
+          label(for= image._id) Titel
+          input(type="text", id= image._id, name="title["+image._id+"]", value= image.title)
+
+mixin trip_info(trip, _)
+  p
+    strong Reisedauer:
+    = _.days_duration_string(trip)
+  
+  if _.isMultiDay(trip)
+    p
+      strong Beginnt am: 
+      = _.formatDate(trip.date_begin)
+
+    p 
+      strong Ended am:
+      = _.formatDate(trip.date_end)
+  else
+    p
+      strong Am: 
+      = _.formatDate(trip.date_begin)

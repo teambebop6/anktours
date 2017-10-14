@@ -1,0 +1,45 @@
+extends layouts/main
+include mixins
+
+block content
+  +title("Unsere Fahrzeugflotte")
+  .ui.page.grid.cars
+    .container.whiteandshiny.row
+      .column
+        each car in cars
+          .ui.car.basic.segment(class= car.inverted ? "inverted": "")
+            h2.ui.header(class= car.color)
+              span= car.name
+            if car.price
+              p
+                strong= "Mietpreis: " + car.price
+            .slick-container
+              .slick
+                each image in car.images
+                  img(src='/assets/images/cars/' + image)
+            if car.description
+              br
+              p= car.description
+            if car.features
+              .ui.sub.header(class= car.color) Ausstattung
+              .ui.features.list.clearfix
+                each feature in car.features
+                  .ui.item
+                    i(class= feature.icon)
+                    .content
+                      .header= feature.title
+                      .description
+                        if feature.description
+                          = feature.description
+            if car.techs
+              .ui.sub.header(class= car.color) Technische Details
+              .ui.features.list.clearfix
+                each tech in car.techs
+                  .ui.item
+                    i(class= tech.icon)
+                    .content
+                      .header= tech.title
+                      .description
+                        if tech.description
+                          = tech.description
+

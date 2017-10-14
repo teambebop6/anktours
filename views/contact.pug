@@ -1,0 +1,47 @@
+extends layouts/main
+include mixins
+block content
+	+title("Kontaktieren Sie uns")
+	.ui.stackable.page.grid
+		.ui.row.container.whiteandshiny
+			.ui.eight.wide.column
+				.ui.message.flash(style="display:none;")
+					.header
+					.content
+
+				form#contact.ui.form(method="post", action="/contact")
+					.ui.success.message
+						.header Erfolg!
+						p.message
+					.field
+						label Vorname
+						input(type='text', name='vorname', minlength='2', placeholder='Ihr Vorname')
+					.field
+						label Name
+						input(type='text', name='name', minlength='2', placeholder='Ihr Famillienname')
+					.field
+						label Email-Adresse
+						input(type='text', name='email', placeholder='Ihre Email-Adresse')
+					.field
+						label Ihre Nachricht
+						textarea(name='text')
+					.field(style="display:none;")
+						label Wenn Sie dieses Feld sehen, bitte leer lassen!
+						input(name='first_name')
+							
+					button.ui.red.button(type="submit") Senden
+			.eight.wide.column
+				.column.contact-block
+					p
+						strong A.N.K. Tours AG
+					p.address
+						| Bahnhofstrasse 60 
+						br
+						| 4132 Muttenz
+					p.phone
+						span Tel: 061 951 24 24
+					p.email
+						| E-Mail: 
+						a.link(href='mailto:info@ank-tours.ch') info@ank-tours.ch
+					p.fax
+						span Fax: 061 461 83 16

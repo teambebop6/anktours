@@ -1,0 +1,30 @@
+extends layouts/main
+include ../mixins
+
+block content
+	+title("Reise bearbeiten", true)
+	.ui.page.grid
+		.whiteandshiny.container.row
+			.column
+				form#form-modify.ui.form(enctype='multipart/form-data')
+					include partials/form_trip
+					.field
+						button.ui.right.floated.primary.button(type='submit') Änderungen speichern
+
+	.ui.basic.modal.confirm_delete
+		i.close.icon
+		.header Bestätigung Löschvorgang
+		.image.content
+			.image
+				i.archive.icon
+			.description
+				p
+					| Möchten Sie dieses Bild wirklich löschen? Dieser Vorgang kann nicht widerrufen werden.
+		.actions
+			.two.fluid.ui.inverted.buttons
+				.ui.deny.red.basic.inverted.button
+					i.remove.icon
+					|	Nein
+				.ui.approve.green.basic.inverted.button
+					i.checkmark.icon
+					|	Ja

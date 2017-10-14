@@ -1,0 +1,77 @@
+extends ../layouts/main
+
+include ../../mixins
+
+block content
+	.ui.page.grid
+		.container.row
+			.column
+				+title(galery.title, true)
+		.whiteandshiny.container.row
+			.column
+				form.ui.form#galery-info(method="post", action="modify")
+					.two.fields
+						.field
+							label Titel
+							.ui.underlined.input
+								input(placeholder='Titel', type='text', name='title', value= galery.title, required='')
+						.field
+							label Aufführdatum
+							.ui.underlined.input
+								input#date(type='text', value= _.formatFullDateString(galery.date), required, readonly)
+								input#datestamp(type='hidden', name='date', value= galery.date)
+					.two.fields
+						.field
+							label Location
+							.ui.underlined.input
+								input(type='text', name='location', value= galery.location, placeholder='Ort der Aufführung')
+
+					.field(style="display:none;")
+						label Details
+						.ui.underlined.input
+							textarea(name='details', value= galery.details, placeholder='Mehr Info...')
+		.whiteandshiny.container.row
+			.column
+				.ui.segment
+					h2 Fotos hochladen
+					form.ui.form
+						input#galery_id(type="hidden", value= galery._id)
+						input#fileupload(type="file" name="files[]" multiple)
+					#progress.progress
+							.progress-bar.progress-bar-success
+							
+				form.ui.form#images_info
+					.ui.two.column.grid#images
+						each image in galery.images
+							+galery_image(image)
+
+	.ui.page.grid.fixed.bottom.sticky(style="width:100%;background:rgba(0,0,0,0.1);")
+		.right.aligned.row(style="padding-top:0;")
+			.column
+				.ui.compact.success.message.save-succeeded(style="display:none;opacity:0;")
+					.header Gespeichert!
+				a.ui.green.button.submit_changes(style="margin:1rem;", href="javascript:;")
+					i.ui.checkmark.icon
+					| Speichern
+
+
+	// Confirm delete modal
+	.ui.basic.modal.confirm_delete
+		i.close.icon
+		.header
+			| Bestätigung Löschvorgang
+		.image.content
+			.image
+				i.archive.icon
+			.description
+				p Möchten Sie dieses Bild wirklich löschen?
+		.actions
+			.two.fluid.ui.inverted.buttons
+				.ui.deny.red.basic.inverted.button
+					i.remove.icon
+					| Nein
+				.ui.approve.green.basic.inverted.button
+					i.checkmark.icon
+					| Ja
+	
+

@@ -1,0 +1,15 @@
+extends layouts/login
+
+block content
+
+	p= message 
+	
+	h3 Bitte loggen Sie sich ein:
+	form.ui.form(action='/login', method='post')
+		.field
+			label Username:
+			input(placeholder='Username', type='text', name='username')
+		.field
+			label Password:
+			input(placeholder='Password', type='password', name='password')
+		input.ui.button(type='submit', value='Log In')

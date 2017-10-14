@@ -1,0 +1,28 @@
+extends layouts/main
+include ../mixins
+
+block content
+	+title("Tags verwalten", true)
+		
+	.ui.page.grid
+		.container.whiteandshiny.row
+			.four.wide.column
+				h3 Neuen Tag erstellen
+				form.ui.form(action="./tags/add", method="post")
+					label(for="name") Name
+					input(type="text", name="name", id="name")
+
+					input(type="submit", value="Tag erstellen")
+		
+		.container.whiteandshiny.row
+			.sixteen.wide.column
+				h3 Existierende Tags
+				.ui.fluid.list
+					if tags && tags.length > 0
+						each tag in tags
+							.item
+								= tag.name
+								a(href="javascript:;" class='delete' id= tag.value)
+									i.ui.delete.icon
+					else
+						p Keine Tags vorhanden

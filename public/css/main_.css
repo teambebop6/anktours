@@ -1,0 +1,692 @@
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+  background: #1B1C1D;
+}
+.trip-selection {
+  padding-bottom: 1rem;
+}
+.ui.page.grid.agb .column {
+  margin-bottom: 1rem;
+}
+.car {
+  margin-bottom: 2rem !important;
+}
+.car .ui.center.aligned.header {
+  border-width: 2px;
+}
+.background-wrapper {
+  width: 100%;
+  background: url('/static/images/page_bg_car.jpg') #74afff no-repeat bottom;
+  padding-bottom: 20rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2px 4px 0px #000000;
+}
+.ui.page.grid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ui.page.grid .row.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+.ui.blue.message {
+  background: #C9D7FF;
+}
+.broschure-info {
+  color: white;
+}
+.broschure-info i {
+  float: right;
+  height: 100%;
+}
+h2 {
+  font-family: 'Lobster', cursive;
+  color: #000111;
+}
+.slogan {
+  margin-top: 1.1rem;
+}
+.ui.page.grid.top-line .row {
+  padding-bottom: 0;
+}
+.ui.page.grid.top-line .row .column {
+  padding-bottom: 1rem;
+}
+.ui.menu.nav {
+  font-family: 'Bitter', serif;
+  border: none;
+  width: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.ui.menu.nav .item {
+  font-weight: 700;
+}
+.ui.menu.nav a:link.item,
+.ui.menu.nav a:active.item,
+.ui.menu.nav a:visited.item {
+  transition: 0.5s;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+.ui.menu.nav a:hover.item {
+  background: #2b4ca6;
+  transition: 0.5s;
+}
+.ui.page.grid.nav-container .row {
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 9px $primary;
+  padding: 0;
+}
+.ui.page.grid.nav-container .row .column {
+  background: #000111;
+  padding: 0;
+}
+.logo {
+  margin: 1rem 2rem 0 0;
+  float: left;
+}
+.left {
+  float: left;
+}
+.whiteandshiny {
+  box-shadow: 0px 0px 9px white;
+  background: white;
+}
+.ui.page.grid.top-line .row {
+  box-shadow: none;
+  background: transparent;
+}
+.trip-detail .trip-title {
+  float: left;
+}
+.trip-detail .tags {
+  clear: both;
+}
+.trip-detail .tags span {
+  padding: 5px;
+  float: left;
+  margin-right: 5px;
+}
+.trip-detail .tags ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.trip-detail .tags ul li {
+  border-radius: 2px;
+  background: lightgray;
+  padding: 5px;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+}
+.trip-detail .trip-info {
+  display: block;
+  padding: 1rem;
+  border: 3px solid lightgray;
+  margin-bottom: 1rem;
+}
+.trip-detail .price span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid lightgray;
+}
+.trip-detail .reservate-now {
+  float: right;
+}
+.trip-detail .reservate-now:link,
+.trip-detail .reservate-now:active,
+.trip-detail .reservate-now:visited {
+  background: #111000;
+  color: white;
+}
+.trip-detail .reservate-now:hover {
+  background: #5e5800;
+}
+.trip-item {
+  background-size: 100%;
+  width: 100%;
+  max-height: 342px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+.trip-item .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: right;
+  padding: 1rem 1rem 1rem 0;
+  font-weight: bold;
+  color: #1B1C1D;
+  background: rgba(255, 255, 255, 0.6);
+}
+.trip-item img {
+  width: 100%;
+}
+.trip-item .trip-info {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  -moz-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  color: #1B1C1D;
+}
+.trip-item .price-label {
+  box-shadow: 2px 2px 4px 0px #1B1C1D;
+  position: absolute;
+  background: #FFFFFF;
+  right: 10px;
+  top: -3.5rem;
+  border: 1px solid #DCDDDE;
+}
+.trip-item .price-label .days {
+  background: #DCDDDE;
+  color: #1B1C1D;
+  font-size: 0.85rem;
+  padding: 0.2rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+.trip-item .price-label .price {
+  font-family: "Bitter", serif;
+  color: #2b4ca6;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  margin: 0;
+}
+.trip-item .trip-title {
+  float: left;
+  display: block;
+  font-weight: bold;
+  margin: 0;
+  padding: 1rem 0 1rem 1rem;
+  font-size: 1rem;
+}
+.trip-item .description {
+  clear: both;
+  padding: 0 1rem 1rem;
+  display: block;
+}
+.trip-item.active .description,
+.trip-item.active .goto-trip {
+  transform: translate(0, -125px);
+  -webkit-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+.trip-item .goto-trip {
+  display: block;
+  background: #000111;
+  color: white;
+  text-transform: uppercase;
+  padding-right: 1rem;
+  -webkit-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+.trip-item .goto-trip a.link {
+  color: white;
+}
+.trip-item .goto-trip span {
+  float: right;
+  margin: 7px 0;
+}
+.ui.page.grid.footer {
+  padding-top: 1rem;
+}
+.ui.page.grid.footer > .row > .column {
+  border-left: 1px dotted #767676;
+}
+.ui.page.grid.footer > .row > .column .ui.header {
+  color: #DCDDDE;
+}
+.ui.page.grid.footer > .row > .column:last-child {
+  border-right: 1px dotted #767676;
+}
+.ui.page.grid.bottomline {
+  background: #0f0f10;
+}
+.ui.page.grid.bottomline .column.legal {
+  text-align: center;
+  color: #DCDDDE;
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Image replacement
+ */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1;
+}
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 768px) {
+  .ui.page.grid .row.container {
+    width: 723px !important;
+  }
+  .trip-item {
+    width: 209px;
+    height: 209px;
+  }
+  .ui.list.features .item {
+    float: left;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.page.grid .row.container {
+    width: 933px !important;
+  }
+  .trip-item {
+    width: 279px;
+    height: 279px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .ui.page.grid .row.container {
+    width: 1127px !important;
+  }
+  .trip-item {
+    width: 342px;
+    height: 342px;
+  }
+}
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+     * Don't show links for images, or javascript/internal links
+     */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

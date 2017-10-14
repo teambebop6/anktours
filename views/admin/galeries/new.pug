@@ -1,0 +1,36 @@
+extends ../layouts/main
+
+include ../../mixins
+
+block content
+	.ui.page.grid
+		.container.row
+			.column
+				+title('Neue galerie erstellen', true)
+		.whiteandshiny.container.row
+			.column
+				form.ui.form(method="post", action="new")
+					.two.fields
+						.field
+							label Titel
+							.ui.underlined.input
+								input(placeholder='Titel', type='text', name='galery[title]', value= galery.title, required='')
+						.field
+							label Aufführdatum
+							.ui.underlined.input
+								input#date(type='text', value= _.formatFullDateString(galery.date))
+								input#datestamp(type='hidden', name='galery[date]', value= galery.date)
+					.two.fields
+						.field
+							label Location
+							.ui.underlined.input
+								input(type='text', name='galery[location]', value= galery.location, placeholder='Ort der Aufführung')
+
+					.field(style="display:none;")
+						label Details
+						.ui.underlined.input
+							textarea(name='galery[details]', value= galery.details, placeholder='Mehr Info...')
+
+					button.ui.button(type="submit")
+						| Weiter zu Fotos hochladen
+						i.right.arrow.icon

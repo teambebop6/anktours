@@ -1,0 +1,20 @@
+extends layouts/main
+
+block content
+	if flash.successMessage
+		+title("Danke!")
+	else
+		+title("Fehler!")
+	.ui.stackable.page.grid
+		.row.container.whiteandshiny
+			.column
+				if flash.successMessage
+					p= flash.successMessage
+				else if flash.errorMessage
+					p= flash.errorMessage
+				else
+					p Es ist ein Fehler aufgetreten.
+
+		.whiteandshiny.row.container
+			.column
+				a(href="javascript:history.back()") Hier geht's zurück

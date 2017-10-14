@@ -1,0 +1,61 @@
+.ui.two.column.stackable.grid
+	.row
+		.sixteen.wide.column
+			.ui.error.message
+				i.close.icon
+				.header There was a problem!
+				.message
+		.column
+			input(type='hidden', name='id', id='tripId', value= trip._id)
+			.field
+				.ui.sub.header Titel
+				input(placeholder='Titel', type='text', name='title', value= trip.title, required='')
+			.field
+				.ui.sub.header Datum von
+				input#date_begin_string(type='text', name='date_begin_string', value= _.formatFullDateString(trip.date_begin), readonly='readonly', required='')
+			input#date_begin(type='hidden', name='date_begin', value= trip.date_begin)
+			.field
+				.ui.sub.header Datum bis
+				input#date_end_string(type='text', name='date_end_string', readonly='readonly', value= _.formatFullDateString(trip.date_end), required='')
+			input#date_end(type='hidden', name='date_end', value= trip.date_end)
+		.column
+			.field
+				.ui.sub.header Preis in CHF
+				input(type='text', name='price', value= _.convertToCHF(trip.price), required='')
+			.field
+				.ui.sub.header Einzelzimmer-Zuschlag in CHF
+				input(type='text', name='single_room', value= _.convertToCHF(trip.single_room))
+			.field
+				.ui.sub.header Tags
+				.ui.fluid.multiple.search.selection.dropdown
+					input(name='tags', type='hidden')
+					i.dropdown.icon
+					.default.text Tags
+					.menu
+						each tag in tags
+							.item(data-value= tag.value)= tag.name
+		.column
+			.field
+				.ui.sub.header Beschreibung
+				#description
+		.column
+			.field
+				.ui.sub.header Leistungen
+				#services
+	
+		.sixteen.wide.column
+			.field(style='margin-top:1rem;')
+				.ui.sub.header Bilder
+				.images-list.clearfix
+					if trip.images
+						each image in trip.images
+							.image(id= image.src )
+								a(href='javascript:;', class="deleteImage", id="delete-" + image.src)
+									i.delete.icon
+								a.move-down(href="javascript:;" data-id= image.src)
+									i.right.arrow.icon
+								a.move-up(href="javascript:;" data-id= image.src)
+									i.left.arrow.icon
+								img(src='/assets/images/trip/thumbs/' + image.src, style='max-height:100px;max-width:100px;')
+				.ui.input
+					input.file.with-preview(placeholder='Durchsuchen', name='file', type='file')
