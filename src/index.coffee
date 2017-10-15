@@ -9,6 +9,8 @@ passport				= require 'passport'
 flash						= require 'connect-flash'
 nodemailer = require('nodemailer')
 
+require('dotenv').config()
+
 User						= require './models/user'
 app = express()
 
