@@ -105,7 +105,7 @@ gulp.task 'dist:copy', ->
   d_locales = gulp.src ['locales/**/*']
   .pipe gulp.dest 'dist/locales/'
 
-  d_dist = gulp.src ['package.json', 'server.js', 'ecosystem.config.js']
+  d_dist = gulp.src ['package.json', 'server.js', 'ecosystem.config.js', 'pm2.dev.config.js']
   .pipe gulp.dest 'dist/'
 
   return merge d_app, d_lib, d_public, d_views, d_locales, d_dist
