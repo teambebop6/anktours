@@ -10,7 +10,7 @@ cache:
 addons:
   ssh_known_hosts: github.com
 before_install:
-- rvm install 2.3.0
+- brew update
 - brew install git-secret
 script:
 - gulp test
