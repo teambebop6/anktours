@@ -1,6 +1,6 @@
 os: osx
 language: node_js
-sudo: false
+sudo: true
 node_js:
 - 6.9.1
 cache:
@@ -10,6 +10,7 @@ cache:
 addons:
   ssh_known_hosts: github.com
 before_install:
+- rvm install 2.3.0
 - brew install git-secret
 script:
 - gulp test
