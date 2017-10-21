@@ -12,6 +12,7 @@ addons:
 before_install:
 - brew update
 - brew install git-secret
+- npm install -g gulp-cli
 script:
 - gulp test
 - gulp clean
