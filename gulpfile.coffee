@@ -1,6 +1,5 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
-gulpif = require 'gulp-if'
 watch = require 'gulp-watch'
 merge = require 'merge-stream'
 less = require 'gulp-less'
