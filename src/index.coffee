@@ -79,10 +79,10 @@ app.use flash()
 
 # Upload
 upload = require('./config/upload')
-upload.configure(app)
+upload.configure(app, config.IMAGE_UPLOAD_FOLDER)
 
 # Initialize router
-app.use '/', require('./routes')
+app.use '/', require('./routes')(config)
 
 
 # Error handler

@@ -5,10 +5,10 @@ mongoose = require('mongoose')
 
 Galery = require('../models/galery')
 
-module.exports.configure = (app) ->
+module.exports.configure = (app, galeriesFolder) ->
 	gm = if app.get('config').USE_IMAGE_MAGICK then require('gm').subClass({imageMagick: true}) else require('gm')
 	
-	uploadDir = __dirname + '/../../public/images/galeries'
+	uploadDir = galeriesFolder || __dirname + '/../../public/images/galeries'
 	console.log 'Upload directory is: ', uploadDir
 
 	upload.configure

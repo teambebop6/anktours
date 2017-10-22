@@ -10,6 +10,7 @@ module.exports = {
         PORT: 3000,
         DB_NAME: 'ank_dev',
         IMAGE_TRIP_FOLDER: '/var/lib/ank_dev/images/trip',
+        IMAGE_UPLOAD_FOLDER: '/var/lib/ank_dev/images/galeries',
       },
       cwd: '/usr/local/share/website/dev.ank-tours.ch/ank_dev'
     }
