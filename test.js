@@ -3,19 +3,19 @@
  */
 const gh = require('ghreleases');
 
-auth = {
+const auth = {
   token: process.env.GitHubToken,
   user: 'henryhuang'
 };
 
-org = 'teambebop6'
-repo = 'anktours'
+const org = 'teambebop6';
+const repo = 'anktours';
 
 gh.getLatest(auth, org, repo, function (err, release) {
     if (release && release.assets) {
-      console.log(release.assets[0].browser_download_url)
+      console.log(release)
     } else {
       console.log('There are not any releases!');
     }
   }
-)
+);
