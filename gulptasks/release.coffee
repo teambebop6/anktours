@@ -5,6 +5,7 @@ gutil = require 'gulp-util'
 moment = require 'moment'
 
 gitHubToken = process.env.GitHubToken
+branch = process.env.TRAVIS_BRANCH || 'dev'
 
 auth = {
   token: gitHubToken,
@@ -14,20 +15,14 @@ auth = {
 org = 'teambebop6'
 repo = 'anktours'
 
-#gulp.task 'release', ()->
-#  gutil.log 'r'
-#  gh.list(auth, 'teambebop6', 'anktours', (err, list) ->
-#    gutil.log(list)
-#  )
-
 module.exports = (callback) ->
   gutil.log 'creating release...'
 
   timeTag = moment().format("YYYYMMDDHHmmss")
-  tag_name = 'release-' + timeTag
+  tag_name = branch + '-build-' + timeTag
   data = {
     tag_name: tag_name,
-    name: 'Release at ' + timeTag
+    name: 'Build at ' + timeTag
     body: 'Automatically release from travis.'
   }
   gh.create(auth, org, repo, data, (err) ->
