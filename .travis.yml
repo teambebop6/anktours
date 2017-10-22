@@ -23,7 +23,6 @@ script:
 - gulp release
 branches:
   only:
-  - master
   - dev
   - release
 env:
