@@ -111,7 +111,7 @@ router.post '/new', upload.array('file', 10), (req, res) ->
           res.json success: true
         else
           # Add images 
-          addImagesToTrip trip, req.files, (trip) ->
+          addImagesToTrip trip, req.files, req.config.IMAGE_TRIP_FOLDER, (trip) ->
             res.json({ success: true })
             return
         return
@@ -137,14 +137,14 @@ compressAndResize = (imageUrl) ->
   return
 
 # Add new Images to Trip
-addImagesToTrip = (trip, files, callback) ->
+addImagesToTrip = (trip, files, baseFolder, callback) ->
   itemsProcessed = 0
   
   if files.length == 0
     return callback(trip)
   
   files.forEach (file, index, array) ->
-    newFilePath = path.join('public/images/trip', file.filename)
+    newFilePath = path.join(baseFolder, file.filename)
     # Be sure the directory is created if not exists
     try
       fs.mkdirSync path.dirname(newFilePath)
@@ -205,10 +205,11 @@ router.post '/deleteImage', (req, res) ->
         trip.images.splice i, 1
       i--
 
+    imageTripFolder = req.config.IMAGE_TRIP_FOLDER
     files = [
-      path.join('public/images/trip', filename)
-      path.join('public/images/trip/thumbs', filename)
-      path.join('public/images/trip/squared', filename)
+      path.join(imageTripFolder, filename)
+      path.join(imageTripFolder, 'thumbs', filename)
+      path.join(imageTripFolder, 'squared', filename)
     ]
     removeFilesMessage = ''
     files.forEach (file) ->
@@ -250,12 +251,13 @@ router.post '/delete', (req, res) ->
         return
       # Delete associated images
       deletion_error = false
+      tripImageBaseFolder = req.config.IMAGE_TRIP_FOLDER
       if trip.images
         trip.images.forEach (img) ->
           [
-            'public/images/trip'
-            'public/images/trip/thumbs'
-            'public/images/trip/squared'
+            tripImageBaseFolder
+            tripImageBaseFolder + '/thumbs'
+            tripImageBaseFolder + '/squared'
           ].forEach (img_dir) ->
             try
               delete_path = path.join(img_dir, img.src)
@@ -335,7 +337,7 @@ router.post '/save', upload.array('file', 10), (req, res) ->
       itemsProcessed = 0
       
       # Add images 
-      addImagesToTrip trip, req.files, (trip) ->
+      addImagesToTrip trip, req.files, req.config.IMAGE_TRIP_FOLDER, (trip) ->
         console.log req.body.sort
         # Add sort params
         trip.images.forEach (image, index, images) ->
