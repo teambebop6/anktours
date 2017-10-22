@@ -1,16 +1,15 @@
 module.exports = {
   apps: [
     {
-      name: "ank_dev",
+      name: "ank",
       script: "./server.js",
-      instances: 1,
+      instances: 2,
       exec_mode: "cluster",
       env: {
         NODE_ENV: 'production',
-        PORT: 3000,
-        DB_NAME: 'ank_dev'
+        PORT: 4000,
       },
-      cwd: '/usr/local/share/website/dev.ank-tours.ch/ank_dev'
+      cwd: '/usr/local/share/website/www.ank-tours.ch/ank'
     }
   ],
 };
