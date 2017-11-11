@@ -104,10 +104,13 @@ gulp.task 'dist:copy', ->
   d_locales = gulp.src ['locales/**/*']
   .pipe gulp.dest 'dist/locales/'
 
+  d_ank_secret = gulp.src ['src/anktours-secret/**/*']
+    .pipe gulp.dest 'dist/src/anktours-secret/'
+
   d_dist = gulp.src ['package.json', 'server.js', 'ecosystem.config.js', 'pm2.*.config.js']
   .pipe gulp.dest 'dist/'
 
-  return merge d_app, d_lib, d_public, d_views, d_locales, d_dist
+  return merge d_app, d_lib, d_public, d_views, d_locales, d_ank_secret, d_dist
 
 gulp.task 'dist:archive', ->
   distFolder = __dirname
