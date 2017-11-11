@@ -12,3 +12,5 @@ vendor/semantic/dist/
 
 .idea/
 yarn-error.log
+
+src/anktours-secret/**/*
