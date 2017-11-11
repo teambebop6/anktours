@@ -1,3 +1,4 @@
+.DS_Store
 .env
 node_modules/
 bower_components/
@@ -8,3 +9,8 @@ src/secret/*.coffee
 dist/
 vendor/semantic/dist/
 *dist.zip
+
+.idea/
+yarn-error.log
+
+src/anktours-secret/**/*
