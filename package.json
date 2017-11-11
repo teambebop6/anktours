@@ -72,10 +72,5 @@
     "moment": "^2.19.1",
     "pre-commit": "^1.2.2",
     "run-sequence": "^2.2.0"
-  },
-  "pre-commit": [
-    "secret-add",
-    "secret-hide",
-    "git-add-secret"
-  ]
+  }
 }
