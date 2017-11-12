@@ -84,9 +84,13 @@ gulp.task 'serve', ['build-source'], ->
 gulp.task 'test', ->
   gutil.log 'test it done'
 
-gulp.task 'clean', 'Clean dist folder', ->
+gulp.task 'clean', ['dist:clean'], ->
+  gulp.src ['./app/'], {read: false}
+    .pipe clean()
+
+gulp.task 'dist:clean', 'Clean dist folder', ->
   gulp.src ['dist/', 'dist.zip', 'ank-dist.zip'], {read: false}
-  .pipe clean()
+    .pipe clean()
 
 gulp.task 'dist:copy', ->
   d_app = gulp.src ['.app/**/*']

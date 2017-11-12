@@ -5,9 +5,6 @@
   "scripts": {
     "start-server": "NODE_ENV=development gulp serve",
     "start": ". $NVM_DIR/nvm.sh && nvm use 6 && NO_MINIFY=true PORT=3000 NODE_ENV=local gulp",
-    "secret-add": "git secret add src/secret/config.coffee",
-    "secret-hide": "git secret hide",
-    "git-add-secret": "git add .gitsecret/ && git add src/secret/",
     "test": "gulp test"
   },
   "dependencies": {
