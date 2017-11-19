@@ -36,7 +36,7 @@ passport.use new LocalStrategy (username, password, done) ->
 
 router.all '/*', (req, res, next) ->
   req.app.locals.layout = 'main'
-  
+
   Galery.find {}, (err, gals) ->
     galeries = gals
     

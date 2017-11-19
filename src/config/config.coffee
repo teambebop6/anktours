@@ -1,12 +1,13 @@
 localEnc = require('../anktours-secret/development');
 devEnc = require('../anktours-secret/development');
 prodEnc = require('../anktours-secret/production');
+assign = require('object.assign');
 
 
 config = {
   USE_IMAGE_MAGICK: true,
-  IMAGE_UPLOAD_FOLDER: process.env.IMAGE_UPLOAD_FOLDER || '/var/lib/ank_dev/images/galeries',
-  IMAGE_TRIP_FOLDER: process.env.IMAGE_TRIP_FOLDER || '/var/lib/ank_dev/images/trip',
+  GALLERIES_FOLDER: process.env.GALLERIES_FOLDER || 'galeries',
+  TRIP_FOLDER: process.env.TRIP_FOLDER || 'trip',
 };
 
 local = {
@@ -14,6 +15,7 @@ local = {
   DEBUG_WARN: true,
   DEBUG_ERROR: true,
   DEBUG_CLIENT: true,
+  IMAGE_UPLOAD_FOLDER: process.env.IMAGE_UPLOAD_FOLDER || '/var/lib/ank_dev/images/upload/',
 };
 
 development = {
@@ -21,6 +23,7 @@ development = {
   DEBUG_WARN: true,
   DEBUG_ERROR: true,
   DEBUG_CLIENT: true,
+  IMAGE_UPLOAD_FOLDER: process.env.IMAGE_UPLOAD_FOLDER || '/var/lib/ank_dev/images/upload/',
 };
 
 production = {
@@ -28,25 +31,26 @@ production = {
   DEBUG_WARN: false,
   DEBUG_ERROR: false,
   DEBUG_CLIENT: false,
+  IMAGE_UPLOAD_FOLDER: process.env.IMAGE_UPLOAD_FOLDER || '/var/lib/ank/images/upload/',
 };
 
 module.exports = (env) ->
   switch env
 
     when "local"
-      Object.assign(config, local)
+      assign(config, local)
       if localEnc
         assign(config, localEnc)
 
     when "development"
-      Object.assign(config, development)
+      assign(config, development)
       if devEnc
-        Object.assign(config, devEnc)
+        assign(config, devEnc)
 
     when "production"
-      Object.assign(config, production)
+      assign(config, production)
       if prodEnc
-        Object.assign(config, prodEnc)
+        assign(config, prodEnc)
 
     else
       console.error("Environment #{env} not found.");

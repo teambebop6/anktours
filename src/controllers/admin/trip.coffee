@@ -7,12 +7,15 @@ utf8          = require('utf8')
 Utils         = require('../../utils/Utils')
 
 # Helpers
-upload = require('../../../lib/upload')
+upload = require('../../../lib/upload')('trip')
 helpers = require('../../../lib/helpers')
 
 Counter = require('../../models/counter')
 Trip = require('../../models/trip')
 Tag = require('../../models/tag')
+
+getTripFolder = (req) ->
+  return path.join(req.config.IMAGE_UPLOAD_FOLDER, req.config.TRIP_FOLDER)
 
 router.post '/getTags', (req, res) ->
   Trip.findOne {_id: req.body.tripId}, (err, trip) ->
@@ -111,7 +114,7 @@ router.post '/new', upload.array('file', 10), (req, res) ->
           res.json success: true
         else
           # Add images 
-          addImagesToTrip trip, req.files, req.config.IMAGE_TRIP_FOLDER, (trip) ->
+          addImagesToTrip trip, req.files, getTripFolder(req), (trip) ->
             res.json({ success: true })
             return
         return
@@ -205,7 +208,7 @@ router.post '/deleteImage', (req, res) ->
         trip.images.splice i, 1
       i--
 
-    imageTripFolder = req.config.IMAGE_TRIP_FOLDER
+    imageTripFolder = getTripFolder(req)
     files = [
       path.join(imageTripFolder, filename)
       path.join(imageTripFolder, 'thumbs', filename)
@@ -251,7 +254,7 @@ router.post '/delete', (req, res) ->
         return
       # Delete associated images
       deletion_error = false
-      tripImageBaseFolder = req.config.IMAGE_TRIP_FOLDER
+      tripImageBaseFolder = getTripFolder(req)
       if trip.images
         trip.images.forEach (img) ->
           [
@@ -337,7 +340,7 @@ router.post '/save', upload.array('file', 10), (req, res) ->
       itemsProcessed = 0
       
       # Add images 
-      addImagesToTrip trip, req.files, req.config.IMAGE_TRIP_FOLDER, (trip) ->
+      addImagesToTrip trip, req.files, getTripFolder(req), (trip) ->
         console.log req.body.sort
         # Add sort params
         trip.images.forEach (image, index, images) ->

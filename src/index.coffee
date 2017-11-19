@@ -9,6 +9,8 @@ passport				= require 'passport'
 flash						= require 'connect-flash'
 nodemailer = require('nodemailer')
 
+fileUtils = require('../lib/fileUtils')
+
 require('dotenv').config()
 
 User						= require './models/user'
@@ -21,6 +23,10 @@ RedisStore			= require('connect-redis')(session)
 env = process.env.NODE_ENV or "development"
 config = require('./config/config')(env)
 app.set('config', config)
+
+# init image upload folder
+imageUploadFolder = config.IMAGE_UPLOAD_FOLDER
+fileUtils.mkdirIfNotExist(imageUploadFolder);
 
 transporter = nodemailer.createTransport(config.SMTP_TRANSPORT)
 
@@ -77,8 +83,8 @@ passport.deserializeUser (id, done) ->
 app.use flash()
 
 # Upload
-upload = require('./config/upload')
-upload.configure(app, config.IMAGE_UPLOAD_FOLDER)
+upload = require('./config/galleries_upload')
+upload.configure(app, path.join(config.IMAGE_UPLOAD_FOLDER, config.GALLERIES_FOLDER))
 
 # Initialize router
 app.use '/', require('./routes')(config)
