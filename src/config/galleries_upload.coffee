@@ -2,13 +2,16 @@ upload = require('jquery-file-upload-middleware')
 utils = require('../utils/Utils')
 path = require('path')
 mongoose = require('mongoose')
+fileUtils = require('../../lib/fileUtils')
 
 Galery = require('../models/galery')
 
-module.exports.configure = (app) ->
+module.exports.configure = (app, galleriesFolder) ->
 	gm = if app.get('config').USE_IMAGE_MAGICK then require('gm').subClass({imageMagick: true}) else require('gm')
 	
-	uploadDir = __dirname + '/../../public/images/galeries'
+	uploadDir = galleriesFolder || __dirname + '/../../public/images/galeries'
+	fileUtils.mkdirIfNotExist(uploadDir)
+
 	console.log 'Upload directory is: ', uploadDir
 
 	upload.configure

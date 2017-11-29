@@ -5,9 +5,8 @@ if (!process.env.NODE_ENV){
 
 var mongoose = require('mongoose')
 var db = require('../.app/db')
-var config = require('../.app/config')
+var config = require('../.app/config/config')(process.env.NODE_ENV)
 
-config.setEnvironment(process.env.NODE_ENV)
 db.connect(config)
 
 var User = require('../.app/models/user')
