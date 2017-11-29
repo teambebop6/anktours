@@ -26,7 +26,6 @@ module.exports = (config) ->
   router.use '/assets/vendor/slick', express.static('node_modules/slick-carousel/slick/')
   router.use '/assets', express.static('.app/assets')
   router.use '/assets', express.static('public')
-  router.use '/assets/js', express.static('vendor/jQuery-File-Upload/js')
   router.use '/assets/images/trip', express.static(path.join(config.IMAGE_UPLOAD_FOLDER, config.TRIP_FOLDER))
   router.use '/assets/images/galeries', express.static(path.join(config.IMAGE_UPLOAD_FOLDER, config.GALLERIES_FOLDER))
 
