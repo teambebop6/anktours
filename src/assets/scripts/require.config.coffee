@@ -5,7 +5,9 @@ define ->
 		jsx:
 			fileExtension: '.jsx'
 		paths:
-			'jquery-ui/ui/widget': 'js/vendor/jquery.ui.widget',
+			'jquery-ui/ui/widget': 'vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget'
+			'js/jquery.iframe-transport': 'vendor/jQuery-File-Upload/js/jquery.iframe-transport'
+			'js/jquery.fileupload': "vendor/jQuery-File-Upload/js/jquery.fileupload"
 			'slick': 'vendor/slick/slick.min'
 			'jquery': 'vendor/jquery-1.10.2.min'
 			"react": "https://unpkg.com/react@15/dist/react"
