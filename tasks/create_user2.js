@@ -1,3 +1,6 @@
+// Create new user
+// Example: node create_user2.js name pw
+
 if (!process.env.NODE_ENV){
 	console.log("Please specify environment variable NODE_ENV");
 	return;

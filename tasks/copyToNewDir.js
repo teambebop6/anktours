@@ -1,3 +1,6 @@
+// Copy file ./[arr_el]/ to dest/[arr_el]/ 
+// node copyToNewDir filename dest 
+
 gulp = require('gulp');
 path = require('path');
 
