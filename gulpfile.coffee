@@ -102,6 +102,9 @@ gulp.task 'dist:copy', ->
   d_public = gulp.src 'public/**/*'
   .pipe gulp.dest 'dist/public/'
 
+  d_tasks = gulp.src ['tasks/**/*']
+  .pipe gulp.dest 'dist/tasks/'
+  
   d_views = gulp.src ['views/**/*']
   .pipe gulp.dest 'dist/views/'
 
@@ -111,7 +114,7 @@ gulp.task 'dist:copy', ->
   d_dist = gulp.src ['package.json', 'server.js', 'ecosystem.config.js', 'pm2.*.config.js']
   .pipe gulp.dest 'dist/'
 
-  return merge d_app, d_lib, d_public, d_views, d_locales, d_dist
+  return merge d_app, d_lib, d_public, d_tasks, d_views, d_locales, d_dist
 
 gulp.task 'dist:archive', ->
   distFolder = __dirname

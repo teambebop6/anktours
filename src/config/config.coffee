@@ -1,4 +1,4 @@
-localEnc = require('../anktours-secret/development');
+localEnc = require('../anktours-secret/local');
 devEnc = require('../anktours-secret/development');
 prodEnc = require('../anktours-secret/production');
 assign = require('object.assign');
