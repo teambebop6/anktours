@@ -29,6 +29,7 @@ module.exports = (config) ->
   router.use '/assets/js', express.static('vendor/jQuery-File-Upload/js')
   router.use '/assets/images/trip', express.static(path.join(config.IMAGE_UPLOAD_FOLDER, config.TRIP_FOLDER))
   router.use '/assets/images/galeries', express.static(path.join(config.IMAGE_UPLOAD_FOLDER, config.GALLERIES_FOLDER))
+  router.use '/assets/files/newses', express.static(path.join(config.IMAGE_UPLOAD_FOLDER, config.NEWS_FOLDER))
 
   router.use '/', getRoute('index')
   router.use '/admin', checkAuth, getRoute('admin/')

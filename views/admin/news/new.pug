@@ -1,0 +1,39 @@
+extends ../layouts/main
+
+include ../../mixins
+
+block content
+    .ui.page.grid
+        .container.row
+            .column
+                +title(t('admin:news.new_news'), true)
+        .whiteandshiny.container.row
+            .column
+                form.ui.form(method="post", action="/admin/news/", enctype='multipart/form-data')
+                    input(type='hidden', name='news[_id]', value=news._id)
+                    .field
+                        label #{t('admin:news.title')}
+                        .ui.underlined.input
+                            input(placeholder=t('admin:news.title'), type='text', name='news[title]', value=news.title, required)
+                    .field
+                        label #{t('admin:news.content')}
+                        .ui.underlined.input
+                            textarea(name='news[content]', placeholder=t('admin:news.placeholder-more-content'), required)=news.content
+                    ui.divided
+                    .row
+                        .column
+                            label #{t('admin:news.attachments')}
+                    .attachments#attachments
+                        if news.attachments && news.attachments.length > 0
+                            each attachment, index in news.attachments
+                                include ./partials/new_attachment
+                        else
+                            include ./partials/new_attachment
+                    if isNew
+                        .row
+                            .column
+                                a.ui.button.green#add_attachment
+                                    i.plus.icon
+                    .field.submit
+                        button.ui.button(type="submit")
+                            | #{t('admin:submit')}

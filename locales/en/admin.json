@@ -1,0 +1,19 @@
+{
+  "news": {
+    "news": "News",
+    "title": "Title",
+    "no_news_found": "no news found",
+    "confirm_delete_news": "You sure you want to delete this news?",
+    "new_news": "New",
+    "content": "Content",
+    "placeholder-more-content": "More text...",
+    "continue-to-upload-attachments": "Continue to upload attachments",
+    "attachments": "Attachments",
+    "creation_date": "Creation Date",
+    "active": "Active"
+  },
+  "confirm_delete": "Confirmation deletion",
+  "yes": "yes",
+  "no": "no",
+  "submit": "Submit"
+}

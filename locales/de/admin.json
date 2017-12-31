@@ -1,0 +1,10 @@
+{
+  "news": {
+    "title": "Nachrichten",
+    "no_news_found": "Keine Nachrichten vorhanden"
+  },
+  "confirm_delete": "Bestätigung Löschvorgang",
+  "confirm_delete_msg": "Möchten Sie diese Nachrichten wirklich löschen?",
+  "yes": "Ja",
+  "no": "Nein"
+}

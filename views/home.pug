@@ -2,73 +2,90 @@ extends layouts/main
 include mixins
 
 block content
-  +title(title)
-  .ui.stackable.page.grid.reisen
-    .three.column.row.container
-      if trips
-        each trip in trips
-          .trip-selection.column
-            a(href='/trip/' + trip._id)
-              .trip-item
-                if trip.images.length > 0
-                  img(src='/assets/images/trip/squared/' + trip.images[0].src)
-                .date
-                  // format date Span
-                  p= _.formatDateSpan(trip.date_begin, trip.date_end)
-                  
-                .trip-info
-                  p.price 
-                    | !{_.formatPrice(trip.price)}
-                  p.trip-title
-                    = trip.title
-                  .description
-                    p= _.limitToNChars(200, trip.description)
-        
-    if trips.length > 0
-      .two.column.row.container
-        .column
-          a.ui.left.labeled.large.icon.button.ankbutton(href='/day-trips')
-            i.left.arrow.icon
-            | zu unseren Tagesfahrten
-        .column
-          a.ui.right.labeled.large.right.floated.icon.button.ankbutton(href='/multi-day-trips')
-            i.right.arrow.icon
-            | zu unseren Ferienreisen
-    else    
-      .row.container
-        .column
-          p Keine Reisen in dieser Kategorie vorhanden
-          p 
-            a(href="javascript:history.back()") zurück
+    +title(title)
+    .ui.stackable.page.grid.reisen
+        .three.column.row.container
+            if trips
+                each trip in trips
+                    .trip-selection.column
+                        a(href='/trip/' + trip._id)
+                            .trip-item
+                                if trip.images.length > 0
+                                    img(src='/assets/images/trip/squared/' + trip.images[0].src)
+                                .date
+                                    // format date Span
+                                    p= _.formatDateSpan(trip.date_begin, trip.date_end)
+
+                                .trip-info
+                                    p.price
+                                        | !{_.formatPrice(trip.price)}
+                                    p.trip-title
+                                        = trip.title
+                                    .description
+                                        p= _.limitToNChars(200, trip.description)
+
+        if trips.length > 0
+            .two.column.row.container
+                .column
+                    a.ui.left.labeled.large.icon.button.ankbutton(href='/day-trips')
+                        i.left.arrow.icon
+                        | zu unseren Tagesfahrten
+                .column
+                    a.ui.right.labeled.large.right.floated.icon.button.ankbutton(href='/multi-day-trips')
+                        i.right.arrow.icon
+                        | zu unseren Ferienreisen
+        else
+            .row.container
+                .column
+                    p Keine Reisen in dieser Kategorie vorhanden
+                    p
+                        a(href="javascript:history.back()") zurück
 
 
-  // Facebook SDK
-  #fb-root
-  script.
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    // Facebook SDK
+    #fb-root
+    script.
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
-  .ui.stackable.page.grid
-    .container.row
-      .six.wide.column
-        +subtitle("Facebook news")
-        .fb-page(data-href="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false")
-          blockquote(cite="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts" class="fb-xfbml-parse-ignore")
-            a(href="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts")
-              | Facebook News werden geladen...
+    .ui.stackable.page.grid
+        .container.row
+            .six.wide.column
+                +subtitle("Facebook news")
+                .fb-page(data-href="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false")
+                    blockquote(cite="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts" class="fb-xfbml-parse-ignore")
+                        a(href="https://www.facebook.com/pg/ANK-Tours-110451559043449/posts")
+                            | Facebook News werden geladen...
 
-      .ten.wide.column
-        +subtitle("Video")
-        iframe(
-          width="560",
-          height="315",
-          src="https://www.youtube.com/embed/7Il01qJR7oE?rel=0",
-          frameborder="0"
-          allowfullscreen
-          )
+            .ten.wide.column
+                .ui.text.container.row
+                    +subtitle("News")
+                    if newses && newses.length > 0
+                        table.ui.single.line.table
+                            tbody
+                                each news in newses
+                                    tr
+                                        td.ten.wide=news.content
+                                        td.four.wide=_.formatFullDateString(news.creationDate)
+                                        td.two.wide
+                                            if news.attachments && news.attachments.length > 0
+                                                each attach in news.attachments
+                                                    a.attachment_link(href='/assets/files/newses/' + attach.link target='_blank')=attach.title
+                    else
+                        p Derzeit sind keine neuen Inhalte verfügbar
+                .container.row
+                    +subtitle("Video")
+                    iframe(
+                    width="560",
+                    height="315",
+                    src="https://www.youtube.com/embed/7Il01qJR7oE?rel=0",
+                    frameborder="0"
+                    allowfullscreen
+                    )
   

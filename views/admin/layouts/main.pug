@@ -1,62 +1,65 @@
 doctype html
 html.no-js
-	head
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge')
-		title
-		meta(name='description', content='')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title
+        meta(name='description', content='')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
 
-		// Stylesheets
-		link(rel='stylesheet', href='/assets/css/main.css')
-		link(rel='stylesheet', href='/assets/css/admin.css')
-		if page_styles
-			each style in page_styles
-				link(rel='stylesheet', href='/assets/css/' + style + '.css')
+        // Stylesheets
+        link(rel='stylesheet', href='/assets/css/main.css')
+        link(rel='stylesheet', href='/assets/css/admin.css')
+        if page_styles
+            each style in page_styles
+                link(rel='stylesheet', href='/assets/css/' + style + '.css')
 
-		// Javascript
-		script(src='/assets/vendor/require.js')
-		if page_script
-			| <script type="text/javascript">
-			|	require(['/assets/js/require.config.js'], function(){
-			|		require(['#{page_script}'])
-			|	});
-			|	</script>
-	
-	body
-		.ui.stackable.page.grid
-			.container.topline.row
-				.column
-					a(href="/admin") 
-						img.ui.left.floated.image(src='/assets/images/logo.png')
-					h3.admin-area Administrations-Bereich
-			.container.row.nav-container
-				.column
-					.ui.inverted.stackable.menu.nav
-						a.item(class= active && active.manage ? 'active' : '', href='/admin/trip/manage')
-							i.large.map.icon
-							| Reisen 
-						a.item(class= active && active.galeries ? 'active' : '', href='/admin/galeries')
-							i.large.image.icon
-							| Galerien 
-						a.item(class= active && active.tags ? 'active' : '', href='/admin/tags')
-							i.large.tag.icon
-							| Tags
-						.ui.inverted.stackable.right.menu
-							a.icon.item(href='/admin/settings')
-								i.large.setting.icon
-							a.item(href='/')
-								i.large.home.icon
-								| Zur Homepage
-							a.icon.item(href='/admin/logout')
-								i.large.sign.out.icon
-		block content
-		
-		.ui.page.grid.footer
-			.row
-				.center.aligned.column
-					span © 2017 by 
-					span.webmaster Florian Rudin
-					a.send-email(href="mailto:flaudre@gmail.com") 
-						i.envelope.icon
-						span email
+        // Javascript
+        script(src='/assets/vendor/require.js')
+        if page_script
+            | <script type="text/javascript">
+            |    require(['/assets/js/require.config.js'], function(){
+            |        require(['#{page_script}'])
+            |    });
+            |    </script>
+
+    body(class=active)
+        .ui.stackable.page.grid
+            .container.topline.row
+                .column
+                    a(href="/admin")
+                        img.ui.left.floated.image(src='/assets/images/logo.png')
+                    h3.admin-area Administrations-Bereich
+            .container.row.nav-container
+                .column
+                    .ui.inverted.stackable.menu.nav
+                        a.item(class= active && active.manage ? 'active' : '', href='/admin/trip/manage')
+                            i.large.map.icon
+                            | Reisen
+                        a.item(class= active && active.galeries ? 'active' : '', href='/admin/galeries')
+                            i.large.image.icon
+                            | Galerien
+                        a.item(class= active && active.tags ? 'active' : '', href='/admin/tags')
+                            i.large.tag.icon
+                            | Tags
+                        a.item(class= active && active.news ? 'active' : '', href='/admin/news')
+                            i.large.announcement.icon
+                            | #{t("admin:news.news")}
+                        .ui.inverted.stackable.right.menu
+                            a.icon.item(href='/admin/settings')
+                                i.large.setting.icon
+                            a.item(href='/')
+                                i.large.home.icon
+                                | Zur Homepage
+                            a.icon.item(href='/admin/logout')
+                                i.large.sign.out.icon
+        block content
+
+        .ui.page.grid.footer
+            .row
+                .center.aligned.column
+                    span © 2017 by
+                    span.webmaster Florian Rudin
+                    a.send-email(href="mailto:flaudre@gmail.com")
+                        i.envelope.icon
+                        span email

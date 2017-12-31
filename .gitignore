@@ -14,3 +14,4 @@ vendor/semantic/dist/
 yarn-error.log
 
 src/anktours-secret/**/*
+src/anktours-secret/

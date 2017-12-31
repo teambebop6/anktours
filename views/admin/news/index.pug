@@ -1,0 +1,62 @@
+extends ../layouts/main
+
+include ../../mixins
+
+block content
+    +title(t('admin:news.news'), true)
+
+    .ui.page.grid(style="margin-top:-4.5rem;")
+        .container.row
+            .column
+                a.ui.right.floated.red.button(href="/admin/news/new_or_update")
+                    i.plus.icon
+                    | #{t('admin:news.new_news')}
+
+    .ui.page.grid
+        .whiteandshiny.container.row
+            .column
+                if newses && newses.length
+                    table.ui.single.line.table
+                        thead
+                            tr
+                                th=t('admin:news.title')
+                                th=t('admin:news.content')
+                                th=t('admin:news.creation_date')
+                                th=t('admin:news.active')
+                                th
+                        tbody
+                            each news in newses
+                                tr(id='news_' + news._id)
+                                    td= news.title
+                                    td= news.content
+                                    td= _.formatDate(news.creationDate)
+                                    td
+                                        .ui.toggle.checkbox
+                                            input(type='checkbox' checked=news.active data-id=news._id)
+                                            label
+                                    td
+                                        a.ui.primary.icon.button(href='/admin/news/new_or_update/' + news._id)
+                                            i.edit.icon
+                                        a.ui.icon.button.delete_news(href='javascript:;', data-id=news._id)
+                                            i.delete.icon
+                else
+                    p #{t('admin:news.no_news_found')}
+
+    // Confirm delete modal
+    .ui.basic.modal.confirm_delete
+        i.close.icon
+        .header
+            | #{t('admin:confirm_delete')}
+        .image.content
+            .image
+                i.archive.icon
+            .description
+                p #{t('admin:news.confirm_delete_news')}
+        .actions
+            .two.fluid.ui.inverted.buttons
+                .ui.deny.red.basic.inverted.button
+                    i.remove.icon
+                    | #{t('admin:no')}
+                .ui.approve.green.basic.inverted.button
+                    i.checkmark.icon
+                    | #{t('admin:yes')}
