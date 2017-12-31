@@ -15,3 +15,5 @@ yarn-error.log
 
 src/anktours-secret/**/*
 src/anktours-secret/
+
+vendor/jQuery-File-Upload/
