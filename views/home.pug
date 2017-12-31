@@ -72,7 +72,7 @@ block content
                                 each news in newses
                                     tr
                                         td.ten.wide=news.content
-                                        td.four.wide=_.formatFullDateString(news.creationDate)
+                                        td.four.wide=_.formatFullDateString(news.date)
                                         td.two.wide
                                             if news.attachments && news.attachments.length > 0
                                                 each attach in news.attachments

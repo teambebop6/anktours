@@ -551,7 +551,7 @@ router.get '/', (req, res, next) ->
     cond = {
       active: true,
     }
-    News.find(cond).sort(creationDate: 'desc').limit(3).exec (err, news) ->
+    News.find(cond).sort(date: 'desc').limit(3).exec (err, news) ->
       if err
         reject err
       else

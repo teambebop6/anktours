@@ -1,5 +1,14 @@
 define ['require'], (require) ->
   require ['js/app', 'semantic'], () ->
+    require ['jquery-ui', 'datepicker_regional_de'], ->
+# Datepicker
+      $("#date").datepicker
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "DD, d. MM, yy"
+        altField: "#datestamp",
+        altFormat: "mm.dd.yy"
+
     require ['semantic'], () ->
       beforeChange = () ->
         return confirm('Bestätigen, um es zu löschen?')

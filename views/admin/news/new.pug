@@ -16,6 +16,11 @@ block content
                         .ui.underlined.input
                             input(placeholder=t('admin:news.title'), type='text', name='news[title]', value=news.title, required)
                     .field
+                        label #{t('admin:news.date')}
+                        .ui.underlined.input
+                            input#date(type='text', value= _.formatFullDateString(news.date))
+                            input#datestamp(type='hidden', name='news[date]', value=news.date)
+                    .field
                         label #{t('admin:news.content')}
                         .ui.underlined.input
                             textarea(name='news[content]', placeholder=t('admin:news.placeholder-more-content'), required)=news.content

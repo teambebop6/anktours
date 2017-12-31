@@ -10,6 +10,7 @@
     "continue-to-upload-attachments": "Continue to upload attachments",
     "attachments": "Attachments",
     "creation_date": "Creation Date",
+    "date": "Date",
     "active": "Active"
   },
   "confirm_delete": "Confirmation deletion",

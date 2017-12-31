@@ -21,6 +21,7 @@ block content
                             tr
                                 th=t('admin:news.title')
                                 th=t('admin:news.content')
+                                th=t('admin:news.date')
                                 th=t('admin:news.creation_date')
                                 th=t('admin:news.active')
                                 th
@@ -29,6 +30,7 @@ block content
                                 tr(id='news_' + news._id)
                                     td= news.title
                                     td= news.content
+                                    td= _.formatDate(news.date)
                                     td= _.formatDate(news.creationDate)
                                     td
                                         .ui.toggle.checkbox

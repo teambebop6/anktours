@@ -16,6 +16,7 @@ News = new (mongoose.Schema)(
     default: true,
   },
   attachments: [Attachment],
+  date: Date
   creationDate: {
     type: Date,
     'default': Date.now,

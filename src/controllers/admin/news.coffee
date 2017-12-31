@@ -39,6 +39,7 @@ router.get ['/new_or_update/?:news_id', '/new_or_update/'], (req, res, next) ->
       page_script: 'js/admin/news'
       active: {news: true}
       news: news
+      _: helpers
       isNew: !req.params.news_id
       title: "Nachrichten"
   ).catch((error) ->
@@ -85,6 +86,7 @@ insertOrUpdate = (req, res, next) ->
   data = {
     title: req.body.news.title,
     content: req.body.news.content,
+    date: req.body.news.date
     attachments: []
   }
 
