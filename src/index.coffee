@@ -24,12 +24,13 @@ RedisStore = require('connect-redis')(session)
 
 # Config and environment
 env = process.env.NODE_ENV or "development"
+console.log("Loading environment " + env)
 config = require('./config/config')(env)
 app.set('config', config)
 
 # init image upload folder
 imageUploadFolder = config.IMAGE_UPLOAD_FOLDER
-fileUtils.mkdirIfNotExist(imageUploadFolder);
+fileUtils.mkdirIfNotExist(imageUploadFolder)
 
 transporter = nodemailer.createTransport(config.SMTP_TRANSPORT)
 
