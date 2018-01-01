@@ -43,11 +43,12 @@ app.use (req, res, next) ->
 app.port = process.env.PORT or config.APP_PORT or 3000
 app.host = process.env.HOST or '127.0.0.1'
 
+lng = process.env.LNG or 'de'
 i18n.use(i18nMiddleware.LanguageDetector).use(i18nFsBackend).init(
   ns: ['translation', 'admin']
   defaultNS: 'translation'
 # debug: true
-# lng: 'en'
+  lng: lng
   preload: ['en', 'de']
   whitelist: ['en', 'de']
 # fallbackLng: 'en'
