@@ -1,0 +1,11 @@
+.fields(id='attachment_' + (index ? index : 0))
+    .field.seven.wide
+        .ui.underlined.input
+            input(disabled=!isNew placeholder=t('admin:news.title'), type='text', name='attachment_titles', required, value= attachment ? attachment.title : '')
+    .field.seven.wide
+        .ui.underlined.input
+            input(disabled=!isNew type='file', name='attachment_files', required, value= attachment ? attachment.link : '')
+    .field.two.wide
+        if isNew
+            a.ui.button.red.remove_attach(data-fields_id='#attachment_' + (index ? index : 0))
+                i.remove.icon

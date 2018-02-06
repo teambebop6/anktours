@@ -1,0 +1,20 @@
+{
+  "news": {
+    "news": "News",
+    "title": "Titel",
+    "no_news_found": "Keine Nachrichten vorhanden",
+    "confirm_delete_news": "Sind Sie sicher, dass Sie diese News löschen möchten?",
+    "new_news": "Neu",
+    "content": "Inhalt",
+    "placeholder-more-content": "Mehr Text ...",
+    "continue-to-upload-attachments": "Fahren Sie mit dem Hochladen von Anhängen fort",
+    "attachments": "Anhänge",
+    "creation_date": "Erstelldatum",
+    "date": "Datum",
+    "active": "Aktiv"
+  },
+  "confirm_delete": "Bestätigung Löschvorgang",
+  "yes": "Ja",
+  "no": "Nein",
+  "submit": "Weiter"
+}

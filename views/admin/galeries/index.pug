@@ -3,55 +3,55 @@ extends ../layouts/main
 include ../../mixins
 
 block content
-	+title("Galerien", true)
+    +title("Galerien", true)
 
-	.ui.page.grid(style="margin-top:-4.5rem;")
-		.container.row
-			.column
-				a.ui.right.floated.red.button(href="/admin/galeries/new") 
-					i.plus.icon
-					| Neue Galerie erstellen
+    .ui.page.grid(style="margin-top:-4.5rem;")
+        .container.row
+            .column
+                a.ui.right.floated.red.button(href="/admin/galeries/new")
+                    i.plus.icon
+                    | Neue Galerie erstellen
 
-	.ui.page.grid
-		.whiteandshiny.container.row
-			.column
-				if galeries && galeries.length
-					table.ui.single.line.table
-						thead
-							tr
-								th Titel
-								th Location
-								th Datum
-								th Aktionen
-						tbody
-							each galery in galeries
-								tr(id='galery_' + galery._id)
-									td= galery.title
-									td= galery.location
-									td= _.formatDate(galery.date)
-									td
-										a.ui.primary.icon.button(href='/admin/galeries/modify/' + galery._id)
-											i.edit.icon
-										a.ui.icon.button.delete-galery(href='javascript:;', id='delete-'+ galery._id)
-											i.delete.icon
-				else
-					p Keine Galerien vorhanden
-				
-	// Confirm delete modal
-	.ui.basic.modal.confirm_delete
-		i.close.icon
-		.header
-			| Bestätigung Löschvorgang
-		.image.content
-			.image
-				i.archive.icon
-			.description
-				p Möchten Sie diese Galerie wirklich löschen?
-		.actions
-			.two.fluid.ui.inverted.buttons
-				.ui.deny.red.basic.inverted.button
-					i.remove.icon
-					| Nein
-				.ui.approve.green.basic.inverted.button
-					i.checkmark.icon
-					| Ja
+    .ui.page.grid
+        .whiteandshiny.container.row
+            .column
+                if galeries && galeries.length
+                    table.ui.single.line.table
+                        thead
+                            tr
+                                th Titel
+                                th Location
+                                th Datum
+                                th Aktionen
+                        tbody
+                            each galery in galeries
+                                tr(id='galery_' + galery._id)
+                                    td= galery.title
+                                    td= galery.location
+                                    td= _.formatDate(galery.date)
+                                    td
+                                        a.ui.primary.icon.button(href='/admin/galeries/modify/' + galery._id)
+                                            i.edit.icon
+                                        a.ui.icon.button.delete-galery(href='javascript:;', id='delete-' + galery._id)
+                                            i.delete.icon
+                else
+                    p Keine Galerien vorhanden
+
+    // Confirm delete modal
+    .ui.basic.modal.confirm_delete
+        i.close.icon
+        .header
+            | Bestätigung Löschvorgang
+        .image.content
+            .image
+                i.archive.icon
+            .description
+                p Möchten Sie diese Galerie wirklich löschen?
+        .actions
+            .two.fluid.ui.inverted.buttons
+                .ui.deny.red.basic.inverted.button
+                    i.remove.icon
+                    | Nein
+                .ui.approve.green.basic.inverted.button
+                    i.checkmark.icon
+                    | Ja

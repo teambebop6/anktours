@@ -8,6 +8,7 @@ config = {
   USE_IMAGE_MAGICK: true,
   GALLERIES_FOLDER: process.env.GALLERIES_FOLDER || 'galeries',
   TRIP_FOLDER: process.env.TRIP_FOLDER || 'trip',
+  NEWS_FOLDER: process.env.NEWS_FOLDER || 'news',
 };
 
 local = {
