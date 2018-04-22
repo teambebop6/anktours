@@ -55,7 +55,7 @@ router.post '/reservation', (req, res, next) ->
   if req.body.honeypot
     return res.json({status: 400, message: "Ein Fehler ist aufgetreten."})
 
-  travellers = req.body.travellers
+  numberOfTravellers = req.body['number_of_travellers']
 
   contact = req.body.contact
   if !contact.last_name
@@ -86,6 +86,7 @@ router.post '/reservation', (req, res, next) ->
     date = helpers.formatDate(trip.date_begin)
 
     html = "<p>Neue Reservation von " + name + " für die Reise " + trip.title + " am " + date + " eingetroffen.</p>" +
+      "<p>Anzahl Reisende: " + numberOfTravellers + "</p>" +
       "<p>Telefon: " + contact.phone + "</p>" +
       "<p>Email: " + contact.email + "</p>" +
       "<p>Kommentar:</p> <div>" + comments + "</div>"
@@ -119,7 +120,7 @@ router.post '/reservation', (req, res, next) ->
       from: '"A.N.K. - Tours" <no-reply@ank-tours.ch>',
       replyTo: name + "<" + contact.email + ">",
       to: req.config.MAILTO || "Florian Rudin <flaudre@gmail.com>",
-      subject: "Neue Reservation auf ank-tours.ch",
+      subject: "Reservationsanfrage: " + trip.title,
       html: html,
       text: text
 
