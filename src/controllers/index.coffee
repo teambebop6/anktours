@@ -173,7 +173,7 @@ router.get '/cars', (req, res, next) ->
         {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
       ]
       features: [
-        {title: 'Sitzplätze', icon: 'ui soccer icon', description: '50 Sitzplätze'}
+        {title: 'Sitzplätze', icon: 'ui user icon', description: '50 Sitzplätze'}
         {title: 'TV Empfang', icon: 'ui soccer icon'}
         {title: 'Bordküche', icon: 'ui food icon'}
         {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
@@ -205,7 +205,7 @@ router.get '/cars', (req, res, next) ->
         {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
       ]
       features: [
-        {title: 'Sitzplätze', icon: 'ui soccer icon', description: '46 (Normalbestuhlung 40 + Clubecke 6)'}
+        {title: 'Sitzplätze', icon: 'ui user icon', description: '46 (Normalbestuhlung 40 + Clubecke 6)'}
         {title: 'TV Empfang', icon: 'ui soccer icon'}
         {title: 'Bordküche', icon: 'ui food icon'}
         {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
@@ -240,7 +240,7 @@ router.get '/cars', (req, res, next) ->
       features: [
         {
           title: 'Sitzplätze',
-          icon: 'ui soccer icon',
+          icon: 'ui user icon',
           description: '52 Sitzplätze (umbaubar zu 48 Sitzplätzen mit zwei Clubtischen)'
         }
         {title: 'Bordküche', icon: 'ui food icon'}
@@ -261,12 +261,12 @@ router.get '/cars', (req, res, next) ->
     },
     {
       name: 'Viano'
-      capacity: '7 (inkl. Chauffeur)'
       price: 'CHF 270.-/Tag'
       techs: [
         {title: 'Leistung', icon: 'ui lightning icon', description: '224 PS'}
       ]
       features: [
+        {title: 'Sitzplätze', icon: 'ui user icon', description: '7 Sitzplätze inkl. Chauffeur'}
         {title: 'Ledersitze', icon: 'ui checkmark icon'}
         {title: 'Licht-Regensensor', icon: 'ui checkmark icon'}
         {title: 'Klimaanlage', icon: 'icon-air'}
@@ -289,11 +289,11 @@ router.get '/cars', (req, res, next) ->
       name: 'Kleinbus'
       price: 'CHF 270.-/Tag'
       description: "Der Kleinbus kann gemietet und selbst gefahren werden, sofern der Fahrer im Besitz eines Führerausweises Kat. B ist und die Prüfung vor dem 1. April 2003 bestanden hat."
-      capacity: '14 (inkl. Chauffeur)'
       techs: [
         {title: 'Leistung', icon: 'ui lightning icon', description: '163 PS'}
       ]
       features: [
+        {title: 'Sitzplätze', icon: 'ui user icon', description: '14 Sitzplätze inkl. Chauffeur'}
         {title: 'Sitzplätze mit Teillederkombination', icon: 'ui checkmark icon'}
         {title: 'Licht-Regensensor', icon: 'ui checkmark icon'}
         {title: 'Hochdach', icon: 'ui checkmark icon'}
