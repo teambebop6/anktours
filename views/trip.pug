@@ -2,21 +2,18 @@ extends layouts/main
 include mixins
 
 block content
+  .ui.stackable.page.grid
+    .container.row.trip-title(style="padding:0;")
+      .trip-duration
+        | #[strong Reisedauer: ] !{_.days_duration_string(trip)}
+
+      .trip-title
+        span= title
+
+      .trip-price.price
+        | !{_.formatPrice(trip.price)}
+      
   .ui.stackable.page.grid.trip-detail
-    .three.column.container.row.trip-title(style="padding:0;")
-      .column
-        .vertical-dummy
-        p.reisedauer
-          strong= "Reisedauer: "
-          span= _.days_duration_string(trip)
-      .column.center.aligned
-        .vertical-dummy
-          
-        +centered_title(title)
-   
-      .column.right.aligned(style="padding-right:0;")
-        .vertical-dummy
-        p.price !{_.formatPrice(trip.price)}
     .container.row(style="padding-bottom:0;padding-top:0;")
       .column.slick-container
         .slick
