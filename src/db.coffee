@@ -11,9 +11,11 @@ exports.connect = (config) ->
 	else
 		db_string = 'mongodb://' + config.DB_HOST + ":" + config.DB_PORT + "/" + config.DB_NAME
 
-	db = mongoose.connect db_string
-	
-	db.connection.on 'error', (err) ->
+	options = { useNewUrlParser: true }
+
+	db = mongoose.connect db_string, options
+
+	mongoose.connection.on 'error', (err) ->
 		console.log "Failed to connect to database"
 		console.log err
 		process.exit
