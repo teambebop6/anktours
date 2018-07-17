@@ -159,7 +159,7 @@ router.get '/agb', (req, res, next) ->
 router.get '/cars', (req, res, next) ->
   cars = [
     {
-      name: 'Setra 516 HDH'
+      name: 'Setra 516 HDH TopClass'
       color: ''
       images: ['hdh_1.png', 'hdh_2.png', 'hdh_3.png', 'hdh_4.png', 'hdh_5.png', 'hdh_6.png', 'hdh_7.png', 'hdh_8.png',
         'hdh_9.png']
@@ -191,7 +191,7 @@ router.get '/cars', (req, res, next) ->
       ]
     },
     {
-      name: 'Setra TopClass 500'
+      name: 'Setra 516 HDH TopClass'
       color: 'blue'
       avatar: 'setra_avatar.png'
       images: ['setra_6.jpg', 'setra_7.jpg', 'setra_3.jpg', 'setra_4.jpg', 'setra_5.jpg', 'setra_1.jpg', 'setra_2.jpg']
@@ -388,7 +388,7 @@ router.get '/trips', (req, res) ->
         tag_string = tag_string.slice(0, -2)
 
       res.render 'multi_day_trips',
-        trips: db_trips
+        trips: trips
         title: 'Aktuelle Reisen (Filter: ' + tag_string + ')'
         _: helpers
         page_script: 'js/home'
@@ -434,35 +434,38 @@ router.get '/day-trips', (req, res) ->
     return
   return
 
+renderTrip = (req, res, next) ->
+  return (trip, tags) ->
+    res.render 'trip',
+      title: 'Reise'
+      trip: trip
+      _: helpers
+      tags: tags
+      page_styles: []
+      page_script: 'js/trip'
+      galeries: galeries
+  
+
 router.get '/trip/:id', (req, res, next) ->
   Trip.findSorted {'_id': req.params.id}, (err, trip) ->
     if err then return next(err)
 
     Tags.find {}, (err, db_tags) ->
-      trip_tags = []
-
-      if err then console.log err
+      if err
+        console.log err
+        return renderTrip(req, res, next)(trip, [])
       else
-# get tags
-        trip.tags.forEach (tag) ->
-          tag_to_add = (db_tags.filter (t) -> return t.value == tag)[0]
+        if !db_tags then db_tags = []
+        trip_tags = []
 
-          if !tag_to_add
-            tag_to_add =
-              name: tag
-              vale: tag
+        console.log(db_tags)
+        db_tags.forEach (tag) ->
+          if trip.tags.indexOf(tag.value) > -1
+            trip_tags.push(tag)
+        
+        console.log trip_tags
+        return renderTrip(req, res, next)(trip, trip_tags)
 
-          if tag_to_add
-            trip_tags.push(tag_to_add)
-
-      res.render 'trip',
-        title: 'Reise'
-        trip: trip
-        _: helpers
-        tags: trip_tags
-        page_styles: []
-        page_script: 'js/trip'
-        galeries: galeries
 
 router.get '/login', (req, res) ->
   res.render 'login',

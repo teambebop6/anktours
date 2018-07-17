@@ -2,7 +2,7 @@ localEnc = require('../anktours-secret/local');
 devEnc = require('../anktours-secret/development');
 prodEnc = require('../anktours-secret/production');
 assign = require('object.assign');
-
+printMasked = require('../utils/mask');
 
 config = {
   USE_IMAGE_MAGICK: true,
@@ -37,7 +37,6 @@ production = {
 
 module.exports = (env) ->
   switch env
-
     when "local"
       assign(config, local)
       if localEnc
@@ -56,5 +55,13 @@ module.exports = (env) ->
     else
       console.error("Environment #{env} not found.");
 
-  console.log(config)
+  console.log("\n-----");
+  console.log("App config: \n");
+  console.log("{");
+
+  printMasked(config);
+
+  console.log("}");
+  console.log("-----\n");
+
   return config

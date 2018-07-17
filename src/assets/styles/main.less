@@ -264,20 +264,34 @@ body{
 .trip-title{
   height:100px;
   padding:0;
-  
-  .reisedauer{
-    vertical-align:middle;
-    display:inline-block;
+
+  margin-top:1rem;
+  margin-bottom:1rem;
+
+  // July 15, 2018
+  .trip-title{
+    display: block;
+    text-align:center;
+    width:100%;
+    span {
+      font-family: 'Lobster', cursive;
+      font-size: 2rem;
+      border-bottom:2px solid black;
+    }
   }
 
-  .title{
-    font-family: 'Lobster', cursive;
-    font-size: 2rem;
-    border-bottom:2px solid black;
-    display: inline-block;
-    vertical-align: middle;
+  .trip-duration{
+    float:left;
+    margin-top:2rem;
+    margin-left:1rem;
   }
 
+  .trip-price{
+    position:absolute;
+    margin:2rem 0rem;
+    top:0;
+    right:0;
+  }
 
 }
 
@@ -294,15 +308,15 @@ body{
       font-size:2rem;
       color:black;
     }
-    
+
     position:absolute;
     top:0;left:0;right:0;bottom:0;
     background: rgba(255,255,255, 0.8);
     text-align:center;
-    
+
     filter:alpha(opacity=0);
     opacity:0;
-    
+
     -webkit-transition: opacity 0.5s ease-in-out;
     -moz-transition: opacity 0.5s ease-in-out;
     -ms-transition: opacity 0.5s ease-in-out;
@@ -334,8 +348,8 @@ body{
 h3.ui.header{
   margin-top:3rem !important;
   margin-bottom:1.5rem !important;
-  
-  
+
+
   //font-family: 'Lobster', cursive;
   display:block;
   > span{
@@ -349,8 +363,8 @@ h3.ui.header{
 h2.ui.header{
   margin-top:3rem !important;
   margin-bottom:1.5rem !important;
-  
-  
+
+
   //font-family: 'Lobster', cursive;
   display:block;
   > span{
@@ -382,7 +396,7 @@ h2.ui.header{
     border-radius: 0;
     box-shadow: none;
     background: transparent;
-    
+
     .item{
       font-weight:700;
     }
@@ -422,7 +436,7 @@ h2.ui.header{
     -ms-transition: background 0.4s ease-in-out;
     -o-transition: background 0.4s ease-in-out;
     transition: background 0.4s ease-in-out;
-    
+
     &:hover{
       background:rgba(255,255,255,0.17)
     }
@@ -450,7 +464,7 @@ h2.ui.header{
   max-height:342px;
   position:relative;
   overflow:hidden;
-  
+
   .date{
     position:absolute;
     top:0;
@@ -468,7 +482,7 @@ h2.ui.header{
   img{
     width:100%;
   }
-.trip-info{
+  .trip-info{
     position:absolute;
     width: 100%;
     -moz-transition:all 500ms cubic-bezier(0.86, 0, 0.07, 1);
@@ -488,7 +502,7 @@ h2.ui.header{
       line-height:30px;
       margin-bottom:1rem;
     }
-    
+
     .description{
       clear:both;
       background:rgba(255,255,255,0.9);
@@ -517,7 +531,7 @@ h2.ui.header{
   }
 
   .goto-trip{
-  
+
     display:block;
     background:#000111;
     color:white;
@@ -545,7 +559,7 @@ h2.ui.header{
 
   background:@black;
   padding-top:1rem;
-  
+
   > .row{
     > .column{
       .ui.header{
@@ -555,7 +569,7 @@ h2.ui.header{
 
       &:last-child{
         border-right: 1px dotted @grey;
-        
+
       }
       border-left: 1px dotted @grey;
     }
@@ -564,10 +578,10 @@ h2.ui.header{
 
 .ui.page.grid.bottomline{
   background:darken(@black, 5);
-    .column.legal{
-      text-align:center;
-      color:@midWhite;
-    }
+  .column.legal{
+    text-align:center;
+    color:@midWhite;
+  }
 }
 
 
@@ -576,31 +590,31 @@ h2.ui.header{
 
 
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+Helper classes
+========================================================================== */
 
 /*
  * Image replacement
  */
 
 .ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
-}
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+            *text-indent: -9999px;
+          }
 
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
-}
+          .ir:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 150%;
+          }
 
-/*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
+          /*
+           * Hide from both screenreaders and browsers: h5bp.com/u
+           */
 
 
 /*
@@ -608,14 +622,14 @@ h2.ui.header{
  */
 
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*
@@ -625,12 +639,12 @@ h2.ui.header{
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 /*
@@ -638,7 +652,7 @@ h2.ui.header{
  */
 
 .invisible {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 /*
@@ -655,12 +669,12 @@ h2.ui.header{
 
 .clearfix:before,
 .clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 /*
@@ -669,16 +683,23 @@ h2.ui.header{
  */
 
 .clearfix {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+EXAMPLE Media Queries for Responsive Design.
+These examples override the primary ('mobile first') styles.
+Modify as content requires.
+========================================================================== */
 
 @media only screen and (min-width: 768px){
+
+  .trip-title{
+    .trip-duration{
+      margin-left:0;
+    }
+  }
+
   .ui.page.grid .row.container{
     width:723px !important;
   }
@@ -742,7 +763,7 @@ h2.ui.header{
     width:279px;
     height:279px;
   }
-  
+
 }
 @media only screen and (min-width: 1200px){
   .ui.page.grid .row.container{
@@ -758,86 +779,86 @@ h2.ui.header{
 
 
 @media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+  /* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
+Print styles.
+Inlined to avoid required HTTP connection: h5bp.com/r
+========================================================================== */
 
 @media print {
-    * {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
+  * {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-    /*
-     * Don't show links for images, or javascript/internal links
-     */
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
 
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+  content: "";
+}
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+pre,
+blockquote {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
 
-    thead {
-        display: table-header-group; /* h5bp.com/t */
-    }
+thead {
+  display: table-header-group; /* h5bp.com/t */
+}
 
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
+tr,
+img {
+  page-break-inside: avoid;
+}
 
-    img {
-        max-width: 100% !important;
-    }
+img {
+  max-width: 100% !important;
+}
 
-    @page {
-        margin: 0.5cm;
-    }
+@page {
+  margin: 0.5cm;
+}
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+p,
+h2,
+h3 {
+  orphans: 3;
+  widows: 3;
+}
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+h2,
+h3 {
+  page-break-after: avoid;
+}
 }
 
 a.attachment_link {
