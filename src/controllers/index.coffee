@@ -159,7 +159,7 @@ router.get '/agb', (req, res, next) ->
 router.get '/cars', (req, res, next) ->
   cars = [
     {
-      name: 'Setra 516 HDH'
+      name: 'Setra 516 HDH TopClass'
       color: ''
       images: ['hdh_1.png', 'hdh_2.png', 'hdh_3.png', 'hdh_4.png', 'hdh_5.png', 'hdh_6.png', 'hdh_7.png', 'hdh_8.png',
         'hdh_9.png']
@@ -191,7 +191,7 @@ router.get '/cars', (req, res, next) ->
       ]
     },
     {
-      name: 'Setra TopClass 500'
+      name: 'Setra 516 HDH TopClass'
       color: 'blue'
       avatar: 'setra_avatar.png'
       images: ['setra_6.jpg', 'setra_7.jpg', 'setra_3.jpg', 'setra_4.jpg', 'setra_5.jpg', 'setra_1.jpg', 'setra_2.jpg']
