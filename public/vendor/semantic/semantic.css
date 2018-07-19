@@ -15356,7 +15356,6 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .ui.indeterminate.loader:after {
-  -webkit-animation-direction: reverse;
   animation-direction: reverse;
   -webkit-animation-duration: 1.2s;
   animation-duration: 1.2s;

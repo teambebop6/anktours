@@ -16,7 +16,14 @@ define ['require'], ->
 					$.each($("input[type='file']")[0].files, (index, file) ->
 						data.append('file', file)
 					)
+					
+					# checkboxes
+					checkboxes = $('input:checkbox').map () ->
+						return { name: this.name, value: this.checked }
+					for i in [0...checkboxes.length]
+						data.append('checkboxes[]', JSON.stringify(checkboxes[i]) )
 
+					# sort
 					data.append('sort', $('.images-list > .image').map(() -> return this.id; ).get())
 
 					$.ajax
@@ -79,6 +86,7 @@ define ['require'], ->
 					if data.success
 						$('#services .ql-editor').html(data.content.services)
 
+		# Load semantic
 		require ['semantic'], ->
 			$.ajax
 				type: 'post'
