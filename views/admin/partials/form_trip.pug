@@ -13,7 +13,7 @@
 			.field
 				.ui.sub.header Datum von
 				input#date_begin_string(type='text', name='date_begin_string', value= _.formatFullDateString(trip.date_begin), readonly='readonly', required='')
-			input#date_begin(type='hidden', name='date_begin', value= trip.date_begin)
+				input#date_begin(type='hidden', name='date_begin', value= trip.date_begin)
 			.field
 				.ui.sub.header Datum bis
 				input#date_end_string(type='text', name='date_end_string', readonly='readonly', value= _.formatFullDateString(trip.date_end), required='')
@@ -42,7 +42,14 @@
 			.field
 				.ui.sub.header Leistungen
 				#services
-	
+		// checkboxes
+		.column
+			h3.ui.header Einstellungen
+			.field
+				.ui.checkbox
+					input(type="checkbox" name="isSoldOut" checked= trip.isSoldOut)
+					label Ausgebucht!
+
 		.sixteen.wide.column
 			.field(style='margin-top:1rem;')
 				.ui.sub.header Bilder

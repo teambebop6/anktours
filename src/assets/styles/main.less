@@ -49,7 +49,7 @@ hr {
 }
 
 /*
- * Remove the gap between images, videos, audio and canvas and the bottom of
+  * Remove the gap between images, videos, audio and canvas and the bottom of
  * their containers: h5bp.com/i/440
  */
 
@@ -59,6 +59,32 @@ img,
 video {
     vertical-align: middle;
 }
+
+
+
+.trip-item.soldOut{
+  .soldOutLabel{
+    position:absolute;
+    top:40%;
+
+    text-align:center;
+    z-index:1000;
+    width:100%;
+    
+  }
+}
+
+  .soldOutLabel{
+    margin-top:1rem;
+    span{  
+      padding: 1rem 3rem;
+      color: white;
+      background: grey;
+      text-transform: uppercase;
+      /* border-radius: 5px; */
+      font-weight: bold;
+    }
+  }
 
 
 .ui.grid.images {

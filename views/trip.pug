@@ -48,8 +48,12 @@ block content
         
         h3.ui.header Unsere Leistungen
         .services !{trip.services}
-
-        p
-          a.ui.large.red.button(href='/reservation/' + trip._id) 
-            | Jetzt reservieren
-            i.ui.right.angle.icon
+        
+        if trip.isSoldOut
+          .soldOutLabel(style="margin-top:3rem;")
+            span Ausgebucht!
+        else
+          p
+            a.ui.large.red.button(href='/reservation/' + trip._id) 
+              | Jetzt reservieren
+              i.ui.right.angle.icon

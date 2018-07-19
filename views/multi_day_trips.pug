@@ -40,7 +40,10 @@ block content
         each trip in trips
           .trip-selection.column
             a(href='/trip/' + trip._id)
-              .trip-item
+              .trip-item(class= trip.isSoldOut ? "soldOut" : "")
+                if trip.isSoldOut
+                  .soldOutLabel 
+                    span Ausgebucht!
                 if trip.images.length > 0
                   img(src='/assets/images/trip/squared/' + trip.images[0].src)
                 .date
