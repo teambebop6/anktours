@@ -9,10 +9,11 @@ block content
 
       .trip-title
         span= title
+        span(style="margin: 0 1rem 0;")= trip.title
 
       .trip-price.price
         | !{_.formatPrice(trip.price)}
-      
+
   .ui.stackable.page.grid.trip-detail
     .container.row(style="padding-bottom:0;padding-top:0;")
       .column.slick-container
@@ -42,18 +43,18 @@ block content
       .four.wide.column
         h3.ui.header= "Datum: "
         p= _.formatDateSpan(trip.date_begin, trip.date_end)
-        
-        h3.ui.header= "Anzahl Tage: " 
+
+        h3.ui.header= "Anzahl Tage: "
         p= _.days_duration_string(trip)
-        
+
         h3.ui.header Unsere Leistungen
         .services !{trip.services}
-        
+
         if trip.isSoldOut
           .soldOutLabel.no-rotate(style="margin-top:3rem;")
             span Ausgebucht!
         else
           p
-            a.ui.large.red.button(href='/reservation/' + trip._id) 
+            a.ui.large.red.button(href='/reservation/' + trip._id)
               | Jetzt reservieren
               i.ui.right.angle.icon
