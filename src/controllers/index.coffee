@@ -259,32 +259,32 @@ router.get '/cars', (req, res, next) ->
         {title: 'Fahrerschlafkabine', icon: 'icon-moon-inv'}
       ]
     },
-    {
-      name: 'Viano'
-      price: 'CHF 270.-/Tag'
-      techs: [
-        {title: 'Leistung', icon: 'ui lightning icon', description: '224 PS'}
-      ]
-      features: [
-        {title: 'Sitzplätze', icon: 'ui user icon', description: '7 Sitzplätze inkl. Chauffeur'}
-        {title: 'Ledersitze', icon: 'ui checkmark icon'}
-        {title: 'Licht-Regensensor', icon: 'ui checkmark icon'}
-        {title: 'Klimaanlage', icon: 'icon-air'}
-        {title: 'Parktronik-System', icon: 'ui checkmark icon'}
-        {title: 'Radio/CD', iconi: 'ui music icon'}
-        {title: 'Tempomat', icon: 'ui checkmark icon'}
-        {title: 'Anhängerkupplung', icon: 'ui checkmark icon'}
-      ]
-      images: [
-        'viano_1.jpg'
-        'viano_2.jpg'
-        'viano_3.jpg'
-        'viano_4.jpg'
-        'viano_5.jpg'
-        'viano_6.jpg'
-        'viano_7.jpg'
-      ]
-    },
+#    {
+#      name: 'Viano'
+#      price: 'CHF 270.-/Tag'
+#      techs: [
+#        {title: 'Leistung', icon: 'ui lightning icon', description: '224 PS'}
+#      ]
+#      features: [
+#        {title: 'Sitzplätze', icon: 'ui user icon', description: '7 Sitzplätze inkl. Chauffeur'}
+#        {title: 'Ledersitze', icon: 'ui checkmark icon'}
+#        {title: 'Licht-Regensensor', icon: 'ui checkmark icon'}
+#        {title: 'Klimaanlage', icon: 'icon-air'}
+#        {title: 'Parktronik-System', icon: 'ui checkmark icon'}
+#        {title: 'Radio/CD', iconi: 'ui music icon'}
+#        {title: 'Tempomat', icon: 'ui checkmark icon'}
+#        {title: 'Anhängerkupplung', icon: 'ui checkmark icon'}
+#      ]
+#      images: [
+#        'viano_1.jpg'
+#        'viano_2.jpg'
+#        'viano_3.jpg'
+#        'viano_4.jpg'
+#        'viano_5.jpg'
+#        'viano_6.jpg'
+#        'viano_7.jpg'
+#      ]
+#    },
     {
       name: 'Kleinbus'
       price: 'CHF 270.-/Tag'
@@ -444,7 +444,7 @@ renderTrip = (req, res, next) ->
       page_styles: []
       page_script: 'js/trip'
       galeries: galeries
-  
+
 
 router.get '/trip/:id', (req, res, next) ->
   Trip.findSorted {'_id': req.params.id}, (err, trip) ->
@@ -462,7 +462,7 @@ router.get '/trip/:id', (req, res, next) ->
         db_tags.forEach (tag) ->
           if trip.tags.indexOf(tag.value) > -1
             trip_tags.push(tag)
-        
+
         console.log trip_tags
         return renderTrip(req, res, next)(trip, trip_tags)
 
