@@ -222,43 +222,43 @@ router.get '/cars', (req, res, next) ->
         {title: 'Video und CD-Player', icon: 'icon-play'}
       ]
     },
-    {
-      name: 'MAN Lion\'s Coach'
-      color: 'red'
-      avatar: 'lion_avatar.png'
-      images: [
-        'lion_0.jpg', 'lion_1.jpg', 'lion_2.jpg', 'lion_3.jpg', 'lion_4.jpg', 'lion_5.jpg'
-      ]
-      techs: [
-        {title: 'Länge', icon: 'icon-ruler', description: '13.26 m'}
-        {title: 'Motor', icon: 'icon-gauge', description: 'Euro 4'}
-        {title: 'Partikelfilter', icon: 'ui checkmark icon', description: 'Für Mensch und Umwelt.'}
-        {title: 'ABS', icon: 'ui checkmark icon', description: 'Antiblockiersystem'}
-        {title: 'EBS', icon: 'ui checkmark icon', description: 'Elektronisches Bremssystem'}
-        {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
-      ]
-      features: [
-        {
-          title: 'Sitzplätze',
-          icon: 'ui user icon',
-          description: '52 Sitzplätze (umbaubar zu 48 Sitzplätzen mit zwei Clubtischen)'
-        }
-        {title: 'Bordküche', icon: 'ui food icon'}
-        {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
-        {title: 'LCD', icon: 'icon-monitor', description: 'Insgesamt 2 Bildschirme'}
-        {title: 'Schlafsessel', icon: 'icon-moon-inv'}
-        {title: 'Fussstützen', icon: 'ui checkmark icon'}
-        {title: 'Klapptische', icon: 'ui checkmark icon'}
-        {title: 'Leseleuchten', icon: 'icon-bulb'}
-        {title: 'Klimaanlage', icon: 'icon-air'}
-        {title: 'Gepäckablage', icon: 'icon-suitcase'}
-        {title: 'WC', icon: 'icon-toilet'}
-        {title: 'Waschraum', icon: 'icon-water'}
-        {title: 'Video und CD-Player', icon: 'icon-play'}
-        {title: 'Mikrofon', icon: 'icon-mic'}
-        {title: 'Fahrerschlafkabine', icon: 'icon-moon-inv'}
-      ]
-    },
+#    {
+#      name: 'MAN Lion\'s Coach'
+#      color: 'red'
+#      avatar: 'lion_avatar.png'
+#      images: [
+#        'lion_0.jpg', 'lion_1.jpg', 'lion_2.jpg', 'lion_3.jpg', 'lion_4.jpg', 'lion_5.jpg'
+#      ]
+#      techs: [
+#        {title: 'Länge', icon: 'icon-ruler', description: '13.26 m'}
+#        {title: 'Motor', icon: 'icon-gauge', description: 'Euro 4'}
+#        {title: 'Partikelfilter', icon: 'ui checkmark icon', description: 'Für Mensch und Umwelt.'}
+#        {title: 'ABS', icon: 'ui checkmark icon', description: 'Antiblockiersystem'}
+#        {title: 'EBS', icon: 'ui checkmark icon', description: 'Elektronisches Bremssystem'}
+#        {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
+#      ]
+#      features: [
+#        {
+#          title: 'Sitzplätze',
+#          icon: 'ui user icon',
+#          description: '52 Sitzplätze (umbaubar zu 48 Sitzplätzen mit zwei Clubtischen)'
+#        }
+#        {title: 'Bordküche', icon: 'ui food icon'}
+#        {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
+#        {title: 'LCD', icon: 'icon-monitor', description: 'Insgesamt 2 Bildschirme'}
+#        {title: 'Schlafsessel', icon: 'icon-moon-inv'}
+#        {title: 'Fussstützen', icon: 'ui checkmark icon'}
+#        {title: 'Klapptische', icon: 'ui checkmark icon'}
+#        {title: 'Leseleuchten', icon: 'icon-bulb'}
+#        {title: 'Klimaanlage', icon: 'icon-air'}
+#        {title: 'Gepäckablage', icon: 'icon-suitcase'}
+#        {title: 'WC', icon: 'icon-toilet'}
+#        {title: 'Waschraum', icon: 'icon-water'}
+#        {title: 'Video und CD-Player', icon: 'icon-play'}
+#        {title: 'Mikrofon', icon: 'icon-mic'}
+#        {title: 'Fahrerschlafkabine', icon: 'icon-moon-inv'}
+#      ]
+#    },
 #    {
 #      name: 'Viano'
 #      price: 'CHF 270.-/Tag'
@@ -316,7 +316,7 @@ router.get '/cars', (req, res, next) ->
     {
       name: 'Anhänger'
       images: [
-        'anhaenger_3.jpg', 'anhaenger_4.jpg', 'anhaenger_5.jpg'
+        'anhaenger_6.jpeg', 'anhaenger_7.jpeg'
       ]
     },
     {

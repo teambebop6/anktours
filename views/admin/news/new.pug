@@ -32,8 +32,8 @@ block content
                         if news.attachments && news.attachments.length > 0
                             each attachment, index in news.attachments
                                 include ./partials/new_attachment
-                        else
-                            include ./partials/new_attachment
+                        //else
+                        //    include ./partials/new_attachment
                     if isNew
                         .row
                             .column
