@@ -9,7 +9,7 @@ nodemon = require 'gulp-nodemon'
 zip = require 'gulp-zip'
 runSequence = require 'run-sequence'
 
-buildSemantic = require('./vendor/semantic/tasks/build')
+buildSemantic = require('./vendor/semantic_src/tasks/build')
 release = require('./gulptasks/release');
 
 
@@ -55,11 +55,13 @@ gulp.task 'watch-coffee', ->
   gulp.watch 'src/**/*.coffee', ['build-coffee']
 
 gulp.task 'watch-source', ['watch-coffee', 'watch-less']
-gulp.task 'watch-all', ['watch-source', 'watch-semantic']
+#gulp.task 'watch-all', ['watch-source', 'watch-semantic']
+#gulp.task 'watch-all', ['watch-source']
 
 gulp.task 'build-semantic', buildSemantic
 gulp.task 'build-source', ['build-less', 'build-coffee']
-gulp.task 'build-all', ['build-source', 'build-semantic']
+#gulp.task 'build-all', ['build-source', 'build-semantic']
+gulp.task 'build-all', ['build-source']
 gulp.task 'build', ['build-source']
 
 gulp.task 'start-server', ->
@@ -104,7 +106,7 @@ gulp.task 'dist:copy', ->
 
   d_tasks = gulp.src ['tasks/**/*']
   .pipe gulp.dest 'dist/tasks/'
-  
+
   d_views = gulp.src ['views/**/*']
   .pipe gulp.dest 'dist/views/'
 
