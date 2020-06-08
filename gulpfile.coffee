@@ -9,7 +9,7 @@ nodemon = require 'gulp-nodemon'
 zip = require 'gulp-zip'
 runSequence = require 'run-sequence'
 
-buildSemantic = require('./vendor/semantic_src/tasks/build')
+#buildSemantic = require('./vendor/semantic_src/tasks/build')
 release = require('./gulptasks/release');
 
 
@@ -58,7 +58,7 @@ gulp.task 'watch-source', ['watch-coffee', 'watch-less']
 #gulp.task 'watch-all', ['watch-source', 'watch-semantic']
 #gulp.task 'watch-all', ['watch-source']
 
-gulp.task 'build-semantic', buildSemantic
+#gulp.task 'build-semantic', buildSemantic
 gulp.task 'build-source', ['build-less', 'build-coffee']
 #gulp.task 'build-all', ['build-source', 'build-semantic']
 gulp.task 'build-all', ['build-source']
@@ -90,7 +90,7 @@ gulp.task 'clean', ['dist:clean'], ->
   gulp.src ['./app/'], {read: false}
     .pipe clean()
 
-gulp.task 'dist:clean', 'Clean dist folder', ->
+gulp.task 'dist:clean', ->
   gulp.src ['dist/', 'dist.zip', 'ank-dist.zip'], {read: false}
     .pipe clean()
 
@@ -145,7 +145,7 @@ gulp.task 'deploy-daily', ->
   startService = spawn.sync 'pm2', ['start', 'server.js', '--name', '"graspdaily"', '--',
     'NODE_ENV=local']
 
-gulp.task 'release', 'release to GitHub', release
+gulp.task 'release', release
 
 gulp.task 'dist', () ->
   runSequence 'dist:copy', 'dist:archive'
