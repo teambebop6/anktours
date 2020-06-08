@@ -316,7 +316,7 @@ router.get '/cars', (req, res, next) ->
     {
       name: 'Anhänger'
       images: [
-        'anhaenger_3.jpg', 'anhaenger_4.jpg', 'anhaenger_5.jpg'
+        'anhaenger_6.jpeg', 'anhaenger_7.jpeg'
       ]
     },
     {
