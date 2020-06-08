@@ -11,4 +11,4 @@ chmod 600 id_rsa_ank_deploy
 # Add the private key to the system
 ssh-add id_rsa_ank_deploy
 
-git clone git@github.com:flaudre/anktours-secret.git src/anktours-secret
+git clone git@github.com:teambebop6/anktours-secret.git src/anktours-secret

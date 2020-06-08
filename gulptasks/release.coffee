@@ -13,7 +13,7 @@ auth = {
 };
 
 org = 'teambebop6'
-repo = 'anktours'
+repo = 'anktours-secret'
 
 module.exports = (callback) ->
   gutil.log 'creating release...'
