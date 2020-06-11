@@ -1,17 +1,16 @@
 #!/bin/bash
-# Decrypt the private key
-#openssl aes-256-cbc -K $encrypted_27e15d652f1d_key -iv $encrypted_27e15d652f1d_iv -in ./.travis/id_rsa_ank_deploy.enc -out id_rsa_ank_deploy -d
 
-#echo $DEPLOY_KEY_BASE64 | base64 --decode > deploy_key
-echo $DEPLOY_KEY > deploy_key
+SECRET_REPO="teambebop6/anktours-secret"
 
-# Start SSH agent
-eval $(ssh-agent -s)
+mkdir src/anktours-secret
 
-# Set the permission of the key
-chmod 600 deploy_key
+curl -L -H "Authorization: token ${TOKEN}" "https://api.github.com/repos/${SECRET_REPO}/zipball/master" > secrect.zip
 
-# Add the private key to the system
-ssh-add deploy_key
+unzip secrect.zip -d secrect
 
-git clone git@github.com:teambebop6/anktours-secret.git src/anktours-secret
+cd secrect/* || exit
+
+cp * ../../src/anktours-secret/
+
+cd ../../
+

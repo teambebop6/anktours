@@ -25,8 +25,7 @@ jobs:
     - run: bash ./.github/checkout_secret.sh
     - shell: bash
       env:
-        DEPLOY_KEY_BASE64: ${{ secrets.ANKTOURS_DEPLOY_KEY_BASE64 }}
-        DEPLOY_KEY: ${{ secrets.ANKTOURS_DEPLOY_KEY }}
+        TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
       run: |
         .github/checkout_secret.sh
     - run: npm install
