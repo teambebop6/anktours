@@ -1,5 +1,3 @@
-#!/bin/bash
-
 SECRET_REPO="teambebop6/anktours-secret"
 
 mkdir src/anktours-secret
