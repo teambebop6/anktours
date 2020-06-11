@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: bash ./.github/checkout_secret.sh
     - shell: bash
       env:
         TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
