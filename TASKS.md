@@ -1,3 +1,13 @@
+# TODO
+
+- download private github assets
+    + curl -L -H "Authorization: token 9f7c3ca19e0862fe9a24d08fbb505a4db0f62948" https://api.github.com/repos/teambebop6/anktours-secret/releases/tags/release-build-20200608163201
+    + get assets url
+    + curl -O -J -L -H "Accept: application/octet-stream"  "https://9f7c3ca19e0862fe9a24d08fbb505a4db0f62948@api.github.com/repos/teambebop6/anktours-secret/releases/assets/21539583"
+- re-struct secret repos 
+
+---
+
 - [x] 20200608 | 2.5h | status: no pay
 
     + [x] Please delete the following persons from this page: http://www.ank-tours.ch/about
