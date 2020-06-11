@@ -2,7 +2,8 @@
 # Decrypt the private key
 #openssl aes-256-cbc -K $encrypted_27e15d652f1d_key -iv $encrypted_27e15d652f1d_iv -in ./.travis/id_rsa_ank_deploy.enc -out id_rsa_ank_deploy -d
 
-echo $DEPLOY_KEY_BASE64 | base64 --decode > deploy_key
+#echo $DEPLOY_KEY_BASE64 | base64 --decode > deploy_key
+echo $DEPLOY_KEY > deploy_key
 
 # Start SSH agent
 eval $(ssh-agent -s)
