@@ -5,8 +5,8 @@ const gh = require('ghreleases')
 const gutil = require('gulp-util')
 const moment = require('moment')
 
-const gitHubToken = process.env.GitHubToken
-const branch = process.env.TRAVIS_BRANCH || 'dev'
+const gitHubToken = process.env.TOKEN
+const branch = process.env.BRANCH_NAME || 'dev'
 const user = 'henryhuang'
 
 const auth = {

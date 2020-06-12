@@ -8,7 +8,8 @@
     "start": "NO_MINIFY=true PORT=3000 NODE_ENV=local gulp serve",
     "build": "gulp clean && gulp build",
     "dist": "gulp dist",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "upload": "gulp release"
   },
   "dependencies": {
     "body-parser": "^1.13.3",

@@ -22,6 +22,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
     - name: Install dependencies
       run: npm ci
     - shell: bash
@@ -31,3 +35,7 @@ jobs:
         .github/checkout_secret.sh
     - run: npm run build
     - run: npm run dist
+    - run: npm run upload
+      env:
+        TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
+        BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
