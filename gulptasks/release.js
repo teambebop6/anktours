@@ -17,7 +17,7 @@ const auth = {
 const org = 'teambebop6'
 const repo = 'anktours-secret'
 
-module.exports = () => {
+module.exports = (done) => {
 
   gutil.log('creating release...')
 
@@ -50,6 +50,7 @@ module.exports = () => {
         })
       }
       gutil.log('asset uploaded!')
+      done()
     })
   })
 }
