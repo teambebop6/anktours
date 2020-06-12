@@ -29,6 +29,5 @@ jobs:
         .github/checkout_secret.sh
     - run: npm install
     - run: npm install -g gulp
-    - run: gulp clean
-    - run: gulp build-all
-    - run: gulp dist
+    - run: npm run build
+    - run: npm run dist

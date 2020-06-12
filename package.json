@@ -6,6 +6,8 @@
     "start-server": "NODE_ENV=development gulp serve",
     "start-local": "NODE_ENV=development PORT=3000 gulp serve ",
     "start": ". $NVM_DIR/nvm.sh && nvm use 6 && NO_MINIFY=true PORT=3000 NODE_ENV=local gulp",
+    "build": "gulp clean && gulp build-all",
+    "dist": "gulp dist",
     "test": "gulp test"
   },
   "dependencies": {
