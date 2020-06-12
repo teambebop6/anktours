@@ -39,3 +39,20 @@ jobs:
         env:
           TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
+
+  cleanup-releases:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - run: npm run clean-up-releases
+        env:
+          TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
+          BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}

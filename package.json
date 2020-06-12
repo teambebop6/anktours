@@ -9,7 +9,8 @@
     "build": "gulp clean && gulp build",
     "dist": "gulp dist",
     "clean": "gulp clean",
-    "upload": "gulp release"
+    "upload": "gulp release",
+    "clean-up-releases": "gulp cleanUpReleases"
   },
   "dependencies": {
     "body-parser": "^1.13.3",

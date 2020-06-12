@@ -10,7 +10,7 @@ zip = require 'gulp-zip'
 runSequence = require 'run-sequence'
 
 #buildSemantic = require('./vendor/semantic_src/tasks/build')
-release = require('./gulptasks/release');
+release = require('../gulptasks/release');
 
 
 # Compile Less
