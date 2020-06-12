@@ -23,9 +23,15 @@ fi
 
 mv ank-dist.zip ank-dist.bak.zip
 
-wget "https://github.com/teambebop6/anktours/releases/download/release-build-${buildHash}/ank-dist.zip"
+# TODO token for private repo
+wget "https://github.com/teambebop6/anktours-secret/releases/download/release-build-${buildHash}/ank-dist.zip"
 
-pm2 stop ank
+if [ $env == "prod" ]
+then
+  pm2 stop ank
+else
+  pm2 stop ank_dev
+fi
 
 rm -rf ank.bak
 
