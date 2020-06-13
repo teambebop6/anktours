@@ -39,3 +39,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
+      - run: npm run clean-up-releases
+        env:
+          TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
+          BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}

@@ -38,9 +38,8 @@ passport.use new LocalStrategy (username, password, done) ->
 router.all '/*', (req, res, next) ->
   req.app.locals.layout = 'main'
 
-  Galery.find {}, (err, gals) ->
+  Galery.find({}).sort(date: 'desc').exec (err, gals) ->
     galeries = gals
-
     next()
 
 sendMail = (transporter, mailOptions, cb) ->

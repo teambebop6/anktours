@@ -12,6 +12,7 @@ const runSequence = require('run-sequence')
 
 const release = require('./gulptasks/release')
 const dist = require('./gulptasks/dist')
+const cleanUpReleases = require('./gulptasks/clean-up-releases')
 
 // Compile Less
 const buildLess = (done) => {
@@ -120,5 +121,6 @@ exports.serve = serve
 exports.clean = series(cleanDist, cleanApp)
 exports.dist = dist
 exports.release = release
+exports.cleanUpReleases = cleanUpReleases
 exports.build = buildSource
 exports.default = buildSource

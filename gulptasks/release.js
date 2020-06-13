@@ -22,11 +22,11 @@ module.exports = (done) => {
   gutil.log('creating release...')
 
   const timeTag = moment().format("YYYYMMDDHHmmss")
-  const tag_name = branch + '-build-' + timeTag
+  const tag_name = branch + '-' + timeTag
   const data = {
     tag_name: tag_name,
-    name: 'Build at ' + timeTag,
-    body: 'Automatically release from travis.'
+    name: 'For ' + branch + ' at ' + timeTag,
+    body: 'Automatically release from GitHub Actions.'
   }
 
   gh.create(auth, org, repo, data, (err) => {
