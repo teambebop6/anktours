@@ -33,16 +33,12 @@ jobs:
       - name: Check out secret
         uses: actions/checkout@v3
         with:
-          path: 'anktours-secret'
+          path: 'anktours-secret/'
           repository: teambebop6/anktours-secret
           token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
           
-      - name: Install Gulp globally
-        run: npm install --global gulp-cli
-        
-      - run: npm link gulp
-      - run: gulp --list
-      - run: gulp build-all      
+      - name: Build app
+        run: npm run build
       - run: npm run upload
         env:
           TOKEN: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
