@@ -7,7 +7,7 @@ const moment = require('moment')
 
 const gitHubToken = process.env.TOKEN
 const branch = process.env.BRANCH_NAME || 'dev'
-const user = 'henryhuang'
+const user = 'flaudre'
 
 const auth = {
   token: gitHubToken,
