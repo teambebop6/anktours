@@ -31,8 +31,9 @@ jobs:
         run: npm ci
         
       - name: Check out secret
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
+          path: 'anktours-secret'
           repository: teambebop6/anktours-secret
           token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
           
