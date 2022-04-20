@@ -38,6 +38,9 @@ jobs:
           
       - name: Install Gulp globally
         run: npm install --global gulp-cli
+        
+      - run: npm link gulp
+        
       - run: gulp build-all      
       - run: npm run upload
         env:
