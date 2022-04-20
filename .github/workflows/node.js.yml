@@ -29,12 +29,15 @@ jobs:
         id: extract_branch
       - name: Install dependencies
         run: npm ci
+        
       - name: Check out secret
         uses: actions/checkout@master
         with:
           repository: teambebop6/anktours-secret
           token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
-      - run: npm link gulp
+          
+      - name: Install Gulp globally
+        run: npm install --global gulp-cli
       - run: gulp build-all      
       - run: npm run upload
         env:
