@@ -33,14 +33,14 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: teambebop6/anktours-secret
-          token: '${{ secrets.ANKTOURS_SECRET_PAT }}'
+          token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
       - run: npm run build
       - run: npm run dist
       - run: npm run upload
         env:
-          TOKEN: '${{ secrets.ANKTOURS_SECRET_PAT }}'
+          TOKEN: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
       - run: npm run clean-up-releases
         env:
-          TOKEN: '${{ secrets.ANKTOURS_SECRET_PAT }}'
+          TOKEN: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
