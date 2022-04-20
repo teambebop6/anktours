@@ -41,7 +41,7 @@ jobs:
         run: npm install --global gulp-cli
         
       - run: npm link gulp
-      - run: gulp tasks --list
+      - run: gulp --list
       - run: gulp build-all      
       - run: npm run upload
         env:
