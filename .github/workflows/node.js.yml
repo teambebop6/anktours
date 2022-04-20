@@ -34,6 +34,7 @@ jobs:
         with:
           repository: teambebop6/anktours-secret
           token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
+      - run: npm link gulp
       - run: gulp build-all      
       - run: npm run upload
         env:
