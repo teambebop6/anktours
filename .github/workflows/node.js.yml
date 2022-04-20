@@ -29,11 +29,11 @@ jobs:
         id: extract_branch
       - name: Install dependencies
         run: npm ci
-      - shell: bash
-        env:
-          TOKEN: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
-        run: |
-          .github/checkout_secret.sh
+      - name: Check out secret
+        uses: actions/checkout@master
+        with:
+          repository: teambebop6/anktours-secret
+          token: ${{ secrets.ANKTOURS_SECRECT_TOKEN }}
       - run: npm run build
       - run: npm run dist
       - run: npm run upload
