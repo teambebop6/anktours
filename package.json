@@ -74,7 +74,7 @@
     "gulp-watch-less": "^1.0.1",
     "gulp-zip": "^4.0.0",
     "merge-stream": "^1.0.1",
-    "moment": "^2.19.3",
+    "moment": "^2.29.4",
     "pre-commit": "^1.2.2",
     "run-sequence": "^2.2.0"
   }
