@@ -10,7 +10,7 @@ module.exports = {
         PORT: 3000,
         DB_NAME: 'ank_dev',
       },
-      cwd: '/usr/local/share/website/dev.ank-tours.ch/ank_dev'
+      cwd: '/app/ank/apps/dev/ank'
     }
   ],
 };

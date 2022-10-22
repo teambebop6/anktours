@@ -9,7 +9,7 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: 4000,
       },
-      cwd: '/usr/local/share/website/www.ank-tours.ch/ank'
+      cwd: '/app/ank/apps/prod/ank'
     }
   ],
 };
