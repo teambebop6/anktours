@@ -40,7 +40,7 @@ jobs:
       - name: Build app
         run: npm run build
       - run: npm run dist
-      - run: tree app
+      - run: tree .app
       - run: npm run upload
         env:
           TOKEN: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
