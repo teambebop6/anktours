@@ -33,7 +33,7 @@ jobs:
       - name: Check out secret
         uses: actions/checkout@v3
         with:
-          path: 'anktours-secret/'
+          path: 'src/anktours-secret/'
           repository: teambebop6/anktours-secret
           token: '${{ secrets.ANKTOURS_SECRET_TOKEN }}'
 
