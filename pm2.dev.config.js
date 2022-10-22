@@ -7,6 +7,7 @@ module.exports = {
       exec_mode: "cluster",
       env: {
         NODE_ENV: 'production',
+        HOST: '127.0.0.1',
         PORT: 3000,
         DB_NAME: 'ank_dev',
       },
