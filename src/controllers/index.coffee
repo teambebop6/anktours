@@ -221,6 +221,38 @@ router.get '/cars', (req, res, next) ->
         {title: 'Video und CD-Player', icon: 'icon-play'}
       ]
     },
+        {
+          name: 'Setra 415 HDH'
+          color: 'blue'
+          avatar: 'setra_avatar.png'
+          images: ['setra415_1.jpg','setra415_2.jpg','setra415_3.jpg','setra415_4.jpg']
+          filter: true
+          techs: [
+            {title: 'Länge', icon: 'icon-ruler', description: '12.30m'}
+            {title: 'Motor', icon: 'icon-gauge', description: 'Euro 5'}
+            {title: 'Partikelfilter', icon: 'ui checkmark icon', description: 'Für Mensch und Umwelt.'}
+            {title: 'ABS', icon: 'ui checkmark icon', description: 'Antiblockiersystem'}
+            {title: 'EBS', icon: 'ui checkmark icon', description: 'Elektronisches Bremssystem'}
+            {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
+          ]
+          features: [
+            {title: 'Sitzplätze', icon: 'ui user icon', description: '48'}
+            {title: 'TV Empfang', icon: 'ui soccer icon'}
+            {title: 'Bordküche', icon: 'ui food icon'}
+            {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
+            {title: 'Kühlschränke', icon: 'icon-snow', description: 'Insgesamt: 2'}
+            {title: 'Steckdose', icon: 'ui plug icon', description: '230V'}
+            {title: 'Navigationssystem', icon: 'icon-location'}
+            {title: 'Sichtkameras', icon: 'icon-videocam', description: 'Fahrersichtkamera und Rückfahrkamera'}
+            {title: 'TopSky Glasdach', icon: 'icon-sun'}
+            {title: 'LCD Bildschirme', icon: 'icon-monitor', description: 'Insgesamt 3 Bildschirme'}
+            {title: 'Komfortsitze', icon: 'icon-star', description: 'Sitze der Voyage-Supreme-Generation'}
+            {title: 'Parkettboden', icon: 'icon-star'}
+            {title: 'WC', icon: 'icon-toilet'}
+            {title: 'Waschraum', icon: 'icon-water'}
+            {title: 'Video und CD-Player', icon: 'icon-play'}
+          ]
+        },
 #    {
 #      name: 'MAN Lion\'s Coach'
 #      color: 'red'
