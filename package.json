@@ -16,7 +16,7 @@
     "debug": "^2.2.0",
     "dotenv": "^4.0.0",
     "easy-pbkdf2": "^0.1.2",
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.13.0",
     "gm": "^1.21.1",
