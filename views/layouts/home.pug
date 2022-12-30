@@ -27,7 +27,7 @@ html.no-js
 			|	</script>
 			
 	body
-		div
+		#home-bg
 			.top-line
 				.ui.stackable.bottom.aligned.two.column.page.grid
 					.row.container
@@ -36,15 +36,21 @@ html.no-js
 						.column
 							img.ui.medium.image.slogan(src='/assets/images/slogan.svg')
 				
-				.ui.middle.aligned.page.grid.nav-container
-					.row.container
-						.column
-							.ui.huge.stackable.five.item.inverted.blue.menu.nav
-								a.item(href='/day-trips') Tagesfahrten
-								a.item(href='/multi-day-trips') Ferienreisen
-								a.item(href='/about') Über uns
-								a.item(href='/cars') Fahrzeuge
-								a.item(href='/contact') Kontakt
+				
+			.ui.middle.aligned.page.grid.nav-container
+				.row.container
+					.column
+						.ui.huge.stackable.five.item.inverted.blue.menu.nav
+							a.item(href='/day-trips') Tagesfahrten
+							a.item(href='/multi-day-trips') Ferienreisen
+							a.item(href='/about') Über uns
+							a.item(href='/cars') Fahrzeuge
+							a.item(href='/contact') Kontakt
+			
+			a.triangle-container(href='javascript:document.getElementById("home-anchor").scrollIntoView({behavior: "smooth"});')
+				p Mehr entdecken...
+				div#dialog2.triangle_down1
+				
 		block content
 				
 		include ../partials/social

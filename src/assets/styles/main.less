@@ -13,51 +13,51 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
 /*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
+* What follows is the result of much research on cross-browser styling.
+* Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+* Kroc Camen, and the H5BP dev community and team.
+*/
 
 
 /*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
+* Remove text-shadow in selection highlight: h5bp.com/i
+* These selection rule sets have to be separate.
+* Customize the background color to match your design.
+*/
 
 ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 /*
- * A better looking default horizontal rule
- */
+* A better looking default horizontal rule
+*/
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*
-  * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
- */
+* Remove the gap between images, videos, audio and canvas and the bottom of
+* their containers: h5bp.com/i/440
+*/
 
 audio,
 canvas,
 img,
 video {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 
@@ -79,8 +79,8 @@ video {
   }
 }
 
-  .soldOutLabel{
-    &:not(.no-rotate){
+.soldOutLabel{
+  &:not(.no-rotate){
     behavior:url(-ms-transform.htc);
     /* Firefox */
     -moz-transform:rotate(-45deg);
@@ -92,28 +92,21 @@ video {
     -ms-transform:rotate(-45deg);
   }
 
-    margin-top:1rem;
-    span{
-      padding: 1rem 3rem;
-      color: white;
-      background: grey;
-      text-transform: uppercase;
-      /* border-radius: 5px; */
-      font-weight: bold;
-    }
+  margin-top:1rem;
+  span{
+    padding: 1rem 3rem;
+    color: white;
+    background: grey;
+    text-transform: uppercase;
+    font-weight: bold;
   }
+}
 
 
 .ui.grid.images {
   .image{
     border-top: 3px solid fade(@blue, 75%);
-
   }
-}
-
-.upper{
-  width:100%;
-  background:@blue;
 }
 
 label.error{
@@ -122,7 +115,7 @@ label.error{
 
 .red{
   span{
-  border-color:@red !important;
+    border-color:@red !important;
 
   }
 }
@@ -135,8 +128,8 @@ label.error{
 
 
 /*
- * Remove default fieldset styles.
- */
+* Remove default fieldset styles.
+*/
 
 
 .ui.page.grid.social{
@@ -196,33 +189,93 @@ label.error{
 }
 
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
- * Allow only vertical resizing of textareas.
- */
+* Allow only vertical resizing of textareas.
+*/
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 /* ==========================================================================
-   Browse Happy prompt
-   ========================================================================== */
+Browse Happy prompt
+========================================================================== */
 
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+Author's custom styles
+========================================================================== */
+
+
+#home-bg{
+  background-repeat: no-repeat;
+  background-image:url('/assets/images/bg_main.jpg');
+  background-position: center;
+  background-size: cover;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+
+  a.triangle-container{
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite  alternate;
+
+    text-align: center;
+    margin:auto auto 3rem;
+    color:white;
+    text-transform:uppercase;
+    font-size:1.4rem;
+    font-weight:100;
+    letter-spacing: 2px;
+
+    p{
+      margin-bottom:0;
+    }
+  }
+
+
+  @-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+
+  @keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+}
+
+
+.triangle-container{
+  -webkit-animation: action 1s infinite alternate;
+  animation: action 1s infinite  alternate;
+}
+.triangle_down1 {
+  position: relative;
+  top: -5px;
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-right: 0.2em solid white;
+  border-top: 0.2em solid white;
+  transform: rotate(135deg);
+  margin-right: 0.5em;
+  margin-left: 1.0em;
+}
+
 
 body{
 }
@@ -388,7 +441,7 @@ body{
 
 
 h3.ui.header{
-  margin-top:3rem !important;
+  margin-top:3rem;
   margin-bottom:1.5rem !important;
 
 
@@ -422,68 +475,41 @@ h2.ui.header{
   margin-top:1.1rem;
 }
 
-.ui.page.grid.top-line{
-  padding-top:1rem;
-  margin-bottom:0 !important;
-  margin-top:0;
-  padding-bottom:0;
-  background:rgba(255,255,255,0.3);
-
+.top-line{
+  margin-top:1rem;
 }
-.ui.menu{
-  &.nav{
-    font-family: 'Bitter', serif;
-    border:none;
-    width:auto;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-
-    .item{
-      font-weight:700;
-    }
-
-    a:link, a:active, a:visited{
-      &.item{
-        transition:0.5s;
-        //text-align:center;
-        border-radius: 0px;
-        text-transform:uppercase;
-      }
-    }
-    a:hover{
-      &.item{
-        background:@primaryColor;
-        transition:0.5s;
-      }
-    }
-  }
-}
-
 .ui.page.grid.nav-container{
-  background:@blue;
-  padding-top:0;
-  padding-bottom:0;
-  margin-top:0;
+  //background:@blue;
+  //padding-top:0;
+  //padding-bottom:0;
+  margin-top:0.7rem;
 
-  > .row{
-    padding-top:0;
-    padding-bottom:0;
-    margin-top:0;
-    margin-bottom:0;
-  }
-  .menu .item {
-    -webkit-transition: background 0.4s ease-in-out;
-    -moz-transition: background 0.4s ease-in-out;
-    -ms-transition: background 0.4s ease-in-out;
-    -o-transition: background 0.4s ease-in-out;
-    transition: background 0.4s ease-in-out;
+  .ui.menu.nav{
 
-    &:hover{
-      background:rgba(255,255,255,0.17)
+    a.item{
+      font-weight:500;
+      letter-spacing: 1px;
+      font-family: 'Bitter', serif;
+
+      -webkit-transition: background 0.4s ease-in-out;
+      -moz-transition: background 0.4s ease-in-out;
+      -ms-transition: background 0.4s ease-in-out;
+      -o-transition: background 0.4s ease-in-out;
+      transition: background 0.4s ease-in-out;
+
+      transition:0.5s;
+      text-transform:uppercase;
+
+      &:hover{
+        transition:0.5s;
+
+        background:rgba(255,255,255,0.17)
+      }
     }
   }
 }
+
+
 
 .logo{
   margin:1rem 2rem 0 0;
@@ -592,27 +618,25 @@ h2.ui.header{
   }
 }
 
-.ui.page.grid.footer{
-
+.footer{
   background:@black;
-  padding-top:1rem;
+  padding:1rem;
 
-  > .row{
-    > .column{
-      .ui.header{
-        color:@midWhite;
-        border-color:@red;
-      }
-    }
+  .ui.header, p, span {
+    color:@midWhite;
   }
 }
 
-.ui.page.grid.bottomline{
-  background:darken(@black, 5);
+.bottomline{
+  background:@blue;
+  color:white;
+  a{
+    &:link, &:active, &:visited {
+      color:white;
+      text-decoration:underline;
+    }
 
-  .column.legal{
-    text-align:center;
-    color:@midWhite;
+    &:hover{ text-decoration:none; }
   }
 }
 
@@ -623,32 +647,32 @@ Helper classes
 ========================================================================== */
 
 /*
- * Image replacement
- */
+* Image replacement
+*/
 
 .ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
   /* IE 6/7 fallback */
-            *text-indent: -9999px;
-          }
+  *text-indent: -9999px;
+}
 
-          .ir:before {
-            content: "";
-            display: block;
-            width: 0;
-            height: 150%;
-          }
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
 
-          /*
-           * Hide from both screenreaders and browsers: h5bp.com/u
-           */
+/*
+* Hide from both screenreaders and browsers: h5bp.com/u
+*/
 
 
 /*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
+* Hide only visually, but have it available for screenreaders: h5bp.com/v
+*/
 
 .visuallyhidden {
   border: 0;
@@ -662,9 +686,9 @@ Helper classes
 }
 
 /*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
+* Extends the .visuallyhidden class to allow the element to be focusable
+* when navigated to via the keyboard: h5bp.com/p
+*/
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
@@ -677,24 +701,24 @@ Helper classes
 }
 
 /*
- * Hide visually and from screenreaders, but maintain layout
- */
+* Hide visually and from screenreaders, but maintain layout
+*/
 
 .invisible {
   visibility: hidden;
 }
 
 /*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
 
 .clearfix:before,
 .clearfix:after {
@@ -707,9 +731,9 @@ Helper classes
 }
 
 /*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
+* For IE 6/7 only
+* Include this rule to trigger hasLayout and contain floats.
+*/
 
 .clearfix {
   *zoom: 1;
@@ -850,49 +874,49 @@ Inlined to avoid required HTTP connection: h5bp.com/r
   }
 
   /*
-   * Don't show links for images, or javascript/internal links
-   */
+  * Don't show links for images, or javascript/internal links
+  */
 
-.ir a:after,
-a[href^="javascript:"]:after,
-a[href^="#"]:after {
-  content: "";
-}
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
 
-pre,
-blockquote {
-  border: 1px solid #999;
-  page-break-inside: avoid;
-}
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
 
-thead {
-  display: table-header-group; /* h5bp.com/t */
-}
+  thead {
+    display: table-header-group; /* h5bp.com/t */
+  }
 
-tr,
-img {
-  page-break-inside: avoid;
-}
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
 
-img {
-  max-width: 100% !important;
-}
+  img {
+    max-width: 100% !important;
+  }
 
-@page {
-  margin: 0.5cm;
-}
+  @page {
+    margin: 0.5cm;
+  }
 
-p,
-h2,
-h3 {
-  orphans: 3;
-  widows: 3;
-}
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
 
-h2,
-h3 {
-  page-break-after: avoid;
-}
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
 
 a.attachment_link {

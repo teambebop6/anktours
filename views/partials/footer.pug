@@ -1,22 +1,37 @@
-
-.ui.stackable.page.grid.footer
+.ui.stackable.page.grid.footer(style="padding:3rem;")
 	.two.column.row.container
 		.column
-			if galeries
-				h3.ui.header Neueste Galerien
-				.ui.inverted.relaxed.link.list
-					each galery in galeries
-						a.item(href="/galery/" + galery._id)= galery.title
+			h3.ui.header Kontakt
+			.ui.two.column.stackable.grid(style="line-height:2rem; font-size:1.1rem;")
+
+				.column
+					p
+						| A.N.K. Tours AG
+						br
+						| Gerberstrasse 9
+						br
+						| 4410 Liestal
+						
+				.column
+					p
+						span(style="display:flex;")
+							i.phone.icon(style="position:absolute; right:100%;")
+							| 061 951 24 24
+						span 061 461 83 16 (Fax)
+						span(style="display:flex;")
+							i.mail.icon(style="position:absolute; right:100%;")
+							a(href="mailto:info@ank-tours.ch")
+								| info@ank-tours.ch
+						
 		.center.aligned.column
 			h3.ui.header Reisebroschüre als PDF
 			.katalog
 				a(href='https://www.katalogwerkstatt.de/browseCat/ANK_So22/' target="_blank")
 					img.ui.centered.small.image.broschure(src='/assets/images/brochure_2022.png')
+					
 .ui.page.grid.bottomline
-	.one.column.row.container
-		.column.legal
-			div
-				span &copy; 2016 A.N.K. Tours AG |
-				a.link(href='/impressum') Impressum
-				|  |
-				a(href='/admin') Admin
+	.row
+		.column
+			p(style="text-align:center;")
+				span &copy; 2016 A.N.K. Tours AG | 
+				span #[a.link(href='/impressum') Impressum] | #[a(href='/admin') Admin]

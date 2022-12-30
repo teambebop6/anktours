@@ -67,8 +67,6 @@ if(process.ENV == "development"){
 `
 
 router.all '/*', (req, res, next) ->
-  req.app.locals.layout = 'main'
-
   Galery.find({}).sort(date: 'desc').exec (err, gals) ->
     galeries = gals
     next()
@@ -568,8 +566,9 @@ router.get '/', (req, res, next) ->
   )
 
   Promise.all([tripPromise, newsPromise]).then((results) ->
-    console.log(results)
+    console.log "rendering home"
     res.render 'home',
+      layout: 'home'
       trips: results[0]
       newses: results[1]
       title: 'Aktuelle Reisen'
@@ -582,6 +581,5 @@ router.get '/', (req, res, next) ->
   ).catch((err) ->
     return next(err)
   )
-
 
 module.exports = router
