@@ -1,0 +1,57 @@
+include ../mixins
+
+doctype html
+html.no-js
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title
+			| A.N.K. Tours AG - Zuverl&auml;ssig und bequem - Ferienreisen, Tagesfahrten, Weinreisen, Ski- und Snowboard
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/assets/css/main.css')
+
+		if page_styles
+			each page_style in page_styles
+				link(rel='stylesheet', href='/assets/' + page_style + '.css')
+		
+		link(href='https://fonts.googleapis.com/css?family=Bitter:400,700,400italic', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Lobster|PT+Serif:400,400italic,700', rel='stylesheet', type='text/css')
+		
+		script(src='/assets/vendor/require.js')
+		if page_script
+			| <script type="text/javascript">
+			|	require(['/assets/js/require.config.js'], function(){
+			|		require(['#{page_script}'])
+			|	});
+			|	</script>
+			
+	body
+		#home-bg
+			.top-line
+				.ui.stackable.bottom.aligned.two.column.page.grid
+					.row.container
+						a.column(href="/")
+							img.ui.large.image.logo#logo(src='/assets/images/logo.svg')
+						.column
+							img.ui.medium.image.slogan(src='/assets/images/slogan.svg')
+				
+				
+			.ui.middle.aligned.page.grid.nav-container
+				.row.container
+					.column
+						.ui.huge.stackable.five.item.inverted.blue.menu.nav
+							a.item(href='/day-trips') Tagesfahrten
+							a.item(href='/multi-day-trips') Ferienreisen
+							a.item(href='/about') Über uns
+							a.item(href='/cars') Fahrzeuge
+							a.item(href='/contact') Kontakt
+			
+			a.triangle-container(href='javascript:document.getElementById("home-anchor").scrollIntoView({behavior: "smooth"});')
+				p Mehr entdecken...
+				div#dialog2.triangle_down1
+				
+		block content
+				
+		include ../partials/social
+	include ../partials/footer

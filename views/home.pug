@@ -1,7 +1,8 @@
-extends layouts/main
+extends layouts/home
 include mixins
 
 block content
+		#home-anchor
 		+title(title)
 		.ui.stackable.page.grid.reisen
 				.three.column.row.container
@@ -93,3 +94,11 @@ block content
 										allowfullscreen
 										)
 	
+		.ui.stackable.page.grid
+			.container.row
+				.column
+					if galeries
+						+subtitle("Bildergalerien")
+						.ui.inverted.relaxed.link.list
+							each galery in galeries
+								a.item(href="/galery/" + galery._id)= galery.title

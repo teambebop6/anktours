@@ -27,24 +27,25 @@ html.no-js
 			|	</script>
 			
 	body
-		.background-wrapper
-			.upper
-				.ui.stackable.bottom.aligned.two.column.page.grid.top-line
+		div
+			.top-line
+				.ui.stackable.bottom.aligned.two.column.page.grid
+					.row.container
+						a.column(href="/")
+							img.ui.large.image.logo#logo(src='/assets/images/logo.svg')
+						.column
+							img.ui.medium.image.slogan(src='/assets/images/slogan.svg')
+				
+				.ui.middle.aligned.page.grid.nav-container
 					.row.container
 						.column
-							img.logo(class="ui large image", src='/assets/images/logo.svg')
-						.column
-							img.slogan(class="ui medium image", src='/assets/images/slogan.svg')
-				.ui.page.grid.nav-container
-					.row.container
-						.column
-							.ui.stackable.inverted.five.item.menu.nav
+							.ui.huge.stackable.five.item.inverted.blue.menu.nav
 								a.item(href='/day-trips') Tagesfahrten
 								a.item(href='/multi-day-trips') Ferienreisen
 								a.item(href='/about') Über uns
 								a.item(href='/cars') Fahrzeuge
 								a.item(href='/contact') Kontakt
-			block content
+		block content
 				
-			include ../partials/social
-		include ../partials/footer
+		include ../partials/social
+	include ../partials/footer
