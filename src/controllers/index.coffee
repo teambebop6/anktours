@@ -284,7 +284,7 @@ router.get '/cars', (req, res, next) ->
         },
     {
       name: 'Kleinbus'
-      price: 'CHF 270.-/Tag'
+      price: 'CHF 290.-/Tag'
       description: "Der Kleinbus kann gemietet und selbst gefahren werden, sofern der Fahrer im Besitz eines Führerausweises Kat. B ist und die Prüfung vor dem 1. April 2003 bestanden hat."
       techs: [
         {title: 'Leistung', icon: 'ui lightning icon', description: '163 PS'}
