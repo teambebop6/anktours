@@ -1,0 +1,24 @@
+language: node_js
+sudo: true
+node_js:
+- 6.9.1
+cache:
+  directories:
+  - node_modules
+addons:
+  ssh_known_hosts: github.com
+before_install:
+- bash ./.travis/checkout_secret.sh
+script:
+- gulp test
+- gulp clean
+- gulp build-all
+- gulp dist
+- gulp release
+branches:
+  only:
+  - dev
+  - release
+env:
+  global:
+    secure: RzzOhgAt6lvJ+pQEmPHA6HDmXm2+UtKJm75yEop5aZcdvSSPz4MXlR0HuOJWOMz2jddlQ+5TjACCDHr+GfdVb8E1RbXp+URwFq+hdXlHhvEPewei8NjIefL2pSRqcb9tkhoORsyhCASD6jMgZvSaqYdgcVj4cIrkGus1rkZYfWPjQYWx14yYWRlnaDiYR23PhiOsVYhSPmw/cN6vOe5uVU3yidrnpb8wWp39SlOx6ugoo77H64lvlIIQ4BMDUiWybM493VoEQ2xREDcTHGHpO/We71z91ZnSZdASDKx6VMZ/Bw+JFQ04mW14yQw7YCKeHjybaOYfsL+oOtIGPmXlFOCR2xK8nCH1UVmUd6i9lB8oCdsCoD0CZh2vgVhOzEK53WZPo/ebYhLLcX60p8DADlmD/MoxQR/Q3gJSSufwCKzlHdll0xZiRdqx05likxMI1UkSB4d0lI45ZNgDsIhsduzVIFX4iRgSvIuWeGgYulwyx+uOC9/XukUX56COTMrlw8GVSCOXeDlPGF9XiRQSzHQEWDXMew0+z/W+A3M+fKPRsD8YwWe7+BZu/ppxLSyFlmuAtVA9Htn4IJH9rmN/pUm52+zAG06k9z1thUDdIPQfm3Zm/4fF6ZVsbgBjwyeOb61as29TCUzgmTl8DRvGHP+CK9eZxS6W4uvTzqEtyaE=

@@ -19,5 +19,5 @@ exports.connect = (config) ->
 		console.log "Failed to connect to database"
 		console.log err
 		process.exit
-	
+
 	mongoose.Promise = global.Promise

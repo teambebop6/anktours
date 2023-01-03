@@ -61,6 +61,7 @@ app.use i18nMiddleware.handle(i18n, {})
 
 # Set view engine
 app.set 'view engine', 'pug'
+app.set('view options', { layout: false });
 
 # Load Database
 db = require('./db')
@@ -91,7 +92,7 @@ app.use session(
     maxAge: 7 * 24 * 60 * 60 * 1000 # ms
 )
 
-# Passport.js 
+# Passport.js
 app.use passport.initialize()
 app.use passport.session()
 passport.serializeUser (user, done) ->

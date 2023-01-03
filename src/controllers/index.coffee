@@ -17,6 +17,7 @@ validator = require('validator')
 
 # Passport.js Local Strategy
 LocalStrategy = require('passport-local').Strategy
+
 passport.use new LocalStrategy (username, password, done) ->
   User.findOne {username: username}, (err, user) ->
     if err
@@ -28,6 +29,9 @@ passport.use new LocalStrategy (username, password, done) ->
       if err
         return done(err)
 
+      console.log "Hash" + hash
+      console.log "Pw " + user.password
+
       if hash == user.password
         return done(null, user)
 
@@ -35,12 +39,36 @@ passport.use new LocalStrategy (username, password, done) ->
     return
   return
 
+`
+if(process.ENV == "development"){
+  passport.use('local-signup', new LocalStrategy({ passReqToCallback : true }, function(req, username, password, done) {
+    User.findOne({ 'user' :  username }, function(err, user) {
+      if (err) return done(err);
+
+      if (user) {
+        return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+        }
+        else {
+          console.log("creating user: " + username);
+          var newUser = new User({
+            username: username,
+            password: password,
+            salt: easyPbkdf2.generateSalt()
+            });
+          // Save
+          newUser.save(function(err) {
+            if (err) throw err;
+            return done(null, newUser);
+          });
+        };
+      });
+    }));
+}
+`
+
 router.all '/*', (req, res, next) ->
-  req.app.locals.layout = 'main'
-
-  Galery.find {}, (err, gals) ->
+  Galery.find({}).sort(date: 'desc').exec (err, gals) ->
     galeries = gals
-
     next()
 
 sendMail = (transporter, mailOptions, cb) ->
@@ -222,72 +250,41 @@ router.get '/cars', (req, res, next) ->
         {title: 'Video und CD-Player', icon: 'icon-play'}
       ]
     },
-#    {
-#      name: 'MAN Lion\'s Coach'
-#      color: 'red'
-#      avatar: 'lion_avatar.png'
-#      images: [
-#        'lion_0.jpg', 'lion_1.jpg', 'lion_2.jpg', 'lion_3.jpg', 'lion_4.jpg', 'lion_5.jpg'
-#      ]
-#      techs: [
-#        {title: 'Länge', icon: 'icon-ruler', description: '13.26 m'}
-#        {title: 'Motor', icon: 'icon-gauge', description: 'Euro 4'}
-#        {title: 'Partikelfilter', icon: 'ui checkmark icon', description: 'Für Mensch und Umwelt.'}
-#        {title: 'ABS', icon: 'ui checkmark icon', description: 'Antiblockiersystem'}
-#        {title: 'EBS', icon: 'ui checkmark icon', description: 'Elektronisches Bremssystem'}
-#        {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
-#      ]
-#      features: [
-#        {
-#          title: 'Sitzplätze',
-#          icon: 'ui user icon',
-#          description: '52 Sitzplätze (umbaubar zu 48 Sitzplätzen mit zwei Clubtischen)'
-#        }
-#        {title: 'Bordküche', icon: 'ui food icon'}
-#        {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
-#        {title: 'LCD', icon: 'icon-monitor', description: 'Insgesamt 2 Bildschirme'}
-#        {title: 'Schlafsessel', icon: 'icon-moon-inv'}
-#        {title: 'Fussstützen', icon: 'ui checkmark icon'}
-#        {title: 'Klapptische', icon: 'ui checkmark icon'}
-#        {title: 'Leseleuchten', icon: 'icon-bulb'}
-#        {title: 'Klimaanlage', icon: 'icon-air'}
-#        {title: 'Gepäckablage', icon: 'icon-suitcase'}
-#        {title: 'WC', icon: 'icon-toilet'}
-#        {title: 'Waschraum', icon: 'icon-water'}
-#        {title: 'Video und CD-Player', icon: 'icon-play'}
-#        {title: 'Mikrofon', icon: 'icon-mic'}
-#        {title: 'Fahrerschlafkabine', icon: 'icon-moon-inv'}
-#      ]
-#    },
-#    {
-#      name: 'Viano'
-#      price: 'CHF 270.-/Tag'
-#      techs: [
-#        {title: 'Leistung', icon: 'ui lightning icon', description: '224 PS'}
-#      ]
-#      features: [
-#        {title: 'Sitzplätze', icon: 'ui user icon', description: '7 Sitzplätze inkl. Chauffeur'}
-#        {title: 'Ledersitze', icon: 'ui checkmark icon'}
-#        {title: 'Licht-Regensensor', icon: 'ui checkmark icon'}
-#        {title: 'Klimaanlage', icon: 'icon-air'}
-#        {title: 'Parktronik-System', icon: 'ui checkmark icon'}
-#        {title: 'Radio/CD', iconi: 'ui music icon'}
-#        {title: 'Tempomat', icon: 'ui checkmark icon'}
-#        {title: 'Anhängerkupplung', icon: 'ui checkmark icon'}
-#      ]
-#      images: [
-#        'viano_1.jpg'
-#        'viano_2.jpg'
-#        'viano_3.jpg'
-#        'viano_4.jpg'
-#        'viano_5.jpg'
-#        'viano_6.jpg'
-#        'viano_7.jpg'
-#      ]
-#    },
+        {
+          name: 'Setra 415 HDH'
+          color: 'blue'
+          avatar: 'setra_avatar.png'
+          images: ['setra415_1.jpg','setra415_2.jpg','setra415_3.jpg','setra415_4.jpg']
+          filter: true
+          techs: [
+            {title: 'Länge', icon: 'icon-ruler', description: '12.30m'}
+            {title: 'Motor', icon: 'icon-gauge', description: 'Euro 5'}
+            {title: 'Partikelfilter', icon: 'ui checkmark icon', description: 'Für Mensch und Umwelt.'}
+            {title: 'ABS', icon: 'ui checkmark icon', description: 'Antiblockiersystem'}
+            {title: 'EBS', icon: 'ui checkmark icon', description: 'Elektronisches Bremssystem'}
+            {title: 'ASR', icon: 'ui checkmark icon', description: 'Traktionskontrolle'}
+          ]
+          features: [
+            {title: 'Sitzplätze', icon: 'ui user icon', description: '48'}
+            {title: 'TV Empfang', icon: 'ui soccer icon'}
+            {title: 'Bordküche', icon: 'ui food icon'}
+            {title: 'Kaffeemaschine', icon: 'ui coffee icon', description: 'Nespresso'}
+            {title: 'Kühlschränke', icon: 'icon-snow', description: 'Insgesamt: 2'}
+            {title: 'Steckdose', icon: 'ui plug icon', description: '230V'}
+            {title: 'Navigationssystem', icon: 'icon-location'}
+            {title: 'Sichtkameras', icon: 'icon-videocam', description: 'Fahrersichtkamera und Rückfahrkamera'}
+            {title: 'TopSky Glasdach', icon: 'icon-sun'}
+            {title: 'LCD Bildschirme', icon: 'icon-monitor', description: 'Insgesamt 3 Bildschirme'}
+            {title: 'Komfortsitze', icon: 'icon-star', description: 'Sitze der Voyage-Supreme-Generation'}
+            {title: 'Parkettboden', icon: 'icon-star'}
+            {title: 'WC', icon: 'icon-toilet'}
+            {title: 'Waschraum', icon: 'icon-water'}
+            {title: 'Video und CD-Player', icon: 'icon-play'}
+          ]
+        },
     {
       name: 'Kleinbus'
-      price: 'CHF 270.-/Tag'
+      price: 'CHF 290.-/Tag'
       description: "Der Kleinbus kann gemietet und selbst gefahren werden, sofern der Fahrer im Besitz eines Führerausweises Kat. B ist und die Prüfung vor dem 1. April 2003 bestanden hat."
       techs: [
         {title: 'Leistung', icon: 'ui lightning icon', description: '163 PS'}
@@ -480,6 +477,12 @@ router.post '/login', passport.authenticate('local',
   failureFlash: true
 )
 
+router.post '/create-admin-user', passport.authenticate('local-signup',
+  successRedirect: '/admin'
+  failureRedirect: '/login'
+  failureFlash: true
+)
+
 router.get '/contact', (req, res) ->
   return res.render 'contact',
     title: 'Kontakt'
@@ -563,8 +566,9 @@ router.get '/', (req, res, next) ->
   )
 
   Promise.all([tripPromise, newsPromise]).then((results) ->
-    console.log(results)
+    console.log "rendering home"
     res.render 'home',
+      layout: 'home'
       trips: results[0]
       newses: results[1]
       title: 'Aktuelle Reisen'
@@ -577,6 +581,5 @@ router.get '/', (req, res, next) ->
   ).catch((err) ->
     return next(err)
   )
-
 
 module.exports = router

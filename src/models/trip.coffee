@@ -12,8 +12,8 @@ tripSchema = new (mongoose.Schema)({
 	date_begin: Date
 	date_end: Date
 	isSoldOut:
-    type: Boolean
-    default: false
+		type: Boolean
+		default: false
 	images: [
 		src: String
 		sort: Number
