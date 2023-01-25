@@ -16,10 +16,15 @@ block content
 							.ui.underlined.input
 								input(placeholder='Titel', type='text', name='galery[title]', value= galery.title, required='')
 						.field
-							label Aufführdatum
+							label Beginn
 							.ui.underlined.input
-								input#date(type='text', value= _.formatFullDateString(galery.date))
-								input#datestamp(type='hidden', name='galery[date]', value= galery.date)
+								input#date_begin(class="date_select" type='text', value= _.formatFullDateString(galery.date_begin))
+								input#date_begin_stamp(class="date_stamp" type='hidden', name='galery[date_begin]', value= galery.date_begin)
+						.field
+							label Ende
+							.ui.underlined.input
+								input#date_end(class="date_select" type='text', value= _.formatFullDateString(galery.date_end))
+								input#date_end_stamp(class="date_stamp" type='hidden', name='galery[date_end]', value= galery.date_end)
 					.two.fields
 						.field
 							label Location

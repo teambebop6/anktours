@@ -66,10 +66,33 @@ if(process.ENV == "development"){
 }
 `
 
-router.all '/*', (req, res, next) ->
-  Galery.find({}).sort(date: 'desc').exec (err, gals) ->
-    galeries = gals
-    next()
+`
+router.all('/*', function(req, res, next){
+  // find latest galeries
+  Galery.find({
+    $expr: {
+      $gt: [
+        "$date_begin",
+        {
+          $subtract: [
+            {
+              $dateFromParts: {
+                year: { $year: new Date() },
+                month: { $month: new Date() },
+                day: { $dayOfMonth: new Date() }
+              }
+              },
+              1000 * 60 * 60 * 24 * 30 * 12 * 2
+            ]
+          }
+          ]
+    }
+    }).sort({date_begin: 'desc'}).exec(function(err, gals){
+          galeries = gals;
+          next();
+        });
+    });
+`
 
 sendMail = (transporter, mailOptions, cb) ->
   console.log "Sending email..."
@@ -169,7 +192,7 @@ router.get '/galery/:id([a-zA-Z0-9]+)', (req, res, next) ->
     if !galery then return next({status: 400, message: "Galery not found!"})
 
     res.render 'galery',
-      title: 'Galerie: ' + galery.title
+      title: 'Fotogallerie: ' + galery.title
       galery: galery
       page_script: 'js/galery'
       galeries: galeries

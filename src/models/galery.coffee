@@ -4,7 +4,8 @@ helpers = require('./../../lib/helpers')
 
 GalerySchema = new mongoose.Schema(
 	_id: String
-	date: Date
+	date_begin: Date
+	date_end: Date
 	location: String
 	title: String
 	text: String
@@ -26,5 +27,5 @@ GalerySchema.pre 'save', (next) ->
 	if this.isNew
 		this._id = new Buffer((new Date()).getTime()+"anktours").toString('base64')
 	next()
-	
+
 module.exports = mongoose.model 'Galery', GalerySchema

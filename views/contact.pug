@@ -3,7 +3,7 @@ include mixins
 block content
 	+title("Kontaktieren Sie uns")
 	.ui.stackable.page.grid
-		.ui.row.container.whiteandshiny
+		.ui.row.container
 			.ui.eight.wide.column
 				.ui.message.flash(style="display:none;")
 					.header
@@ -43,5 +43,3 @@ block content
 					p.email
 						| E-Mail: 
 						a.link(href='mailto:info@ank-tours.ch') info@ank-tours.ch
-					p.fax
-						span Fax: 061 461 83 16

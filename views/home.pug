@@ -94,11 +94,19 @@ block content
 										allowfullscreen
 										)
 	
-		.ui.stackable.page.grid
+		.ui.stackable.page.grid(style="margin-top:4.5rem;")
 			.container.row
 				.column
 					if galeries
-						+subtitle("Bildergalerien")
-						.ui.inverted.relaxed.link.list
+						+subtitle("Neueste Bildergalerien")
+						.ui.stackable.grid
 							each galery in galeries
-								a.item(href="/galery/" + galery._id)= galery.title
+								a.row(href="/galery/" + galery._id)
+									.two.wide.column
+										strong(style="color:black;font-size:1.1rem;")= _.formatDateSpan(galery.date_begin, galery.date_end) 
+									.five.wide.column(style="font-size:1.1rem;")
+										p(style="font-family:serif;font-size:1.5rem;font-style:italic;color:black;")= galery.title
+										p zur Galerie →
+									.nine.wide.column
+										if galery.images[0]
+											img.ui.tiny.image(src="/assets/images/galeries/"+galery.images[0].fileName)

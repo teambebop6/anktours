@@ -10,16 +10,22 @@ block content
 		.whiteandshiny.container.row
 			.column
 				form.ui.form#galery-info(method="post", action="modify")
-					.two.fields
+					.fields
 						.field
 							label Titel
 							.ui.underlined.input
 								input(placeholder='Titel', type='text', name='title', value= galery.title, required='')
 						.field
-							label Aufführdatum
+							label Startdatum
 							.ui.underlined.input
-								input#date(type='text', value= _.formatFullDateString(galery.date), required, readonly)
-								input#datestamp(type='hidden', name='date', value= galery.date)
+								input#date_begin(type='text', value= _.formatFullDateString(galery.date_begin), required, readonly)
+								input#date_begin_stamp(type='hidden', name='date_begin', value= galery.date_begin)
+						.field
+							label Enddatum
+							.ui.underlined.input
+								input#date_end(type='text', value= _.formatFullDateString(galery.date_end), required, readonly)
+								input#date_end_stamp(type='hidden', name='date_end', value= galery.date_end)
+
 					.two.fields
 						.field
 							label Location
@@ -74,4 +80,3 @@ block content
 					i.checkmark.icon
 					| Ja
 	
-

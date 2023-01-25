@@ -54,9 +54,11 @@ router.get '/modify/:id([a-zA-Z0-9]+)', (req, res, next) ->
 router.post '/modify', (req, res, next) ->
   Galery.findOne { _id: req.body.galery_id }, (err, galery) ->
 # Update basic data
+    console.log req.body.info
     if req.body.info
       galery.title = req.body.info.title
-      galery.date = req.body.info.date
+      galery.date_begin = req.body.info.date_begin
+      galery.date_end = req.body.info.date_end
       galery.location = req.body.info.location
 
     # Update image data

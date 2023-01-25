@@ -21,14 +21,16 @@ block content
                             tr
                                 th Titel
                                 th Location
-                                th Datum
+                                th Datum von
+                                th Datum bis
                                 th Aktionen
                         tbody
                             each galery in galeries
                                 tr(id='galery_' + galery._id)
                                     td= galery.title
                                     td= galery.location
-                                    td= _.formatDate(galery.date)
+                                    td= _.formatDate(galery.date_begin)
+                                    td= _.formatDate(galery.date_end)
                                     td
                                         a.ui.primary.icon.button(href='/admin/galeries/modify/' + galery._id)
                                             i.edit.icon

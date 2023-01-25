@@ -1,12 +1,18 @@
 define ['require'], (require) ->
   require ['js/app'], () ->
     require ['jquery-ui', 'datepicker_regional_de'], ->
-# Datepicker
-      $("#date").datepicker
+      # Datepicker
+      $("#date_begin").datepicker
         changeMonth: true,
         changeYear: true,
         dateFormat: "DD, d. MM, yy"
-        altField: "#datestamp",
+        altField: "#date_begin_stamp",
+        altFormat: "mm.dd.yy"
+      $("#date_end").datepicker
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "DD, d. MM, yy"
+        altField: "#date_end_stamp",
         altFormat: "mm.dd.yy"
 
 
